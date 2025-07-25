@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uniment – Turn Restaurant Data Into Profit</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer data-domain="uniment.com" src="https://plausible.io/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeSlideUp 0.6s ease-out forwards;
+      }
+      .fade-up.delay {
+        animation-delay: 0.4s;
+      }
+      @keyframes fadeSlideUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900">
+    <!-- HERO SECTION -->
+    <header class="text-center py-32 px-4 bg-gradient-to-b from-gray-100 to-white relative">
+        <h1 class="text-5xl md:text-6xl font-extrabold fade-up bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent drop-shadow-[0_5px_10px_rgba(0,0,0,0.2)] transform perspective-500 transition-transform duration-700" id="typingHeading"></h1>
+      <p class="text-xl mt-6 max-w-xl mx-auto fade-up delay">
+        The all-in-one platform helping restaurants unlock revenue, reduce waste, and win loyal customers — with data.
+      </p>
+      <div class="mt-8 flex justify-center gap-4 fade-up delay">
+        <a href="#notify" class="px-6 py-3 bg-black text-white rounded-lg font-medium hover:shadow-lg transition">Notify Me</a>
+        <a href="#features" class="px-6 py-3 border border-black text-black rounded-lg font-medium hover:bg-gray-100 transition">How It Works</a>
+      </div>
+    </header>
+
+    <!-- FEATURES INTRO -->
+    <section class="relative py-20 text-center px-4 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+      <div class="relative z-10 max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-4 fade-up">Your data is a story. We help you read it.</h2>
+        <p class="text-gray-600 text-lg fade-up delay">Imagine knowing exactly what drives repeat orders, peak rush hours, or what’s wasting money. That’s the power of data — unlocked by Uniment.</p>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features" class="bg-gray-50 py-20 px-4">
+      <div class="max-w-6xl mx-auto grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up">
+          <i data-lucide="bar-chart" class="w-6 h-6 text-black mb-3"></i>
+          <h3 class="text-lg font-semibold mb-2">Customer Trends</h3>
+          <p class="text-gray-600">Track customer behavior and tailor offerings to what your guests love most.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="100">
+          <i data-lucide="package" class="w-6 h-6 text-black mb-3"></i>
+          <h3 class="text-lg font-semibold mb-2">Inventory Mastery</h3>
+          <p class="text-gray-600">Forecast demand, optimize restocks, and reduce costly spoilage with data-driven inventory planning.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="200">
+          <i data-lucide="megaphone" class="w-6 h-6 text-black mb-3"></i>
+          <h3 class="text-lg font-semibold mb-2">Smarter Promotions</h3>
+          <p class="text-gray-600">Run campaigns that convert using insight-backed customer segmentation and timing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section id="notify" class="text-center py-20 px-4 bg-black text-white">
+      <h2 class="text-3xl font-bold mb-4">Be First to Get Uniment</h2>
+      <p class="text-gray-300 mb-6">We're launching soon. Sign up to get notified and early access.</p>
+      <form id="notify-form" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+        <input id="email" type="email" placeholder="Enter your email" required class="flex-1 px-4 py-3 text-black border rounded-lg focus:outline-none">
+        <button type="submit" class="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition">Notify Me</button>
+      </form>
+      <p id="thank-you" class="mt-4 text-green-400 font-medium hidden">Thank you! We'll keep you posted. 🎉</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-6 text-sm text-gray-500">
+      &copy; 2025 Uniment. All rights reserved.
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init(); lucide.createIcons();</script>
+    <script>
+      document.getElementById('notify-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        document.getElementById('thank-you').classList.remove('hidden');
+        this.reset();
+      });
+
+      const headingEl = document.getElementById('typingHeading');
+      const brandText = 'Uniment';
+      let i = 0;
+      function typeText() {
+        if (i <= brandText.length) {
+          headingEl.textContent = brandText.slice(0, i);
+          i++;
+          setTimeout(typeText, 120);
+        } else {
+          
+        }
+      }
+      typeText();
+
+      headingEl.addEventListener('mousemove', e => {
+        const rect = headingEl.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        headingEl.style.transform = `perspective(500px) rotateX(${y * -10}deg) rotateY(${x * 10}deg)`;
+      });
+      headingEl.addEventListener('mouseleave', () => {
+        headingEl.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg)';
+      });
+    </script>
+  </body>
+</html>
