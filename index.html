@@ -29,7 +29,16 @@
   <body class="bg-white text-gray-900">
     <!-- HERO SECTION -->
     <header class="text-center py-32 px-4 bg-gradient-to-b from-gray-100 to-white relative">
-        <h1 class="text-5xl md:text-6xl font-extrabold fade-up bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent drop-shadow-[0_5px_10px_rgba(0,0,0,0.2)] transform perspective-500 transition-transform duration-700" id="typingHeading"></h1>
+      <h1
+        class="text-5xl md:text-6xl font-extrabold fade-up bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent drop-shadow-[0_5px_10px_rgba(0,0,0,0.2)] transform perspective-500 transition-transform duration-700"
+        id="typingHeading"
+      ></h1>
+      
+      <!-- Founder attribution -->
+      <p class="mt-4 text-gray-500 text-lg fade-up delay">
+        Founded by <strong>Mayur Rane</strong>
+      </p>
+
       <p class="text-xl mt-6 max-w-xl mx-auto fade-up delay">
         The all-in-one platform helping restaurants unlock revenue, reduce waste, and win loyal customers — with data.
       </p>
@@ -43,8 +52,10 @@
     <section class="relative py-20 text-center px-4 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       <div class="relative z-10 max-w-3xl mx-auto">
         <h2 class="text-3xl font-bold mb-4 fade-up">We believe better restaurants start with better decisions.</h2>
-        <p class="text-gray-600 text-lg fade-up delay">Uniment helps restaurant data into clarity — so they can serve smarter, grow faster, and lead with confidence.
-Because when you understand your numbers, you don’t just run a business — you build a legacy.</p>
+        <p class="text-gray-600 text-lg fade-up delay">
+          Uniment helps restaurant data into clarity — so they can serve smarter, grow faster, and lead with confidence.
+          Because when you understand your numbers, you don’t just run a business — you build a legacy.
+        </p>
       </div>
     </section>
 
@@ -74,20 +85,35 @@ Because when you understand your numbers, you don’t just run a business — yo
       <h2 class="text-3xl font-bold mb-4">Be First to Get Uniment</h2>
       <p class="text-gray-300 mb-6">We're launching soon. Sign up to get notified and early access.</p>
       <form id="notify-form" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
-        <input id="email" type="email" placeholder="Enter your email" required class="flex-1 px-4 py-3 text-black border rounded-lg focus:outline-none">
-        <button type="submit" class="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition">Notify Me</button>
+        <input
+          id="email"
+          type="email"
+          placeholder="Enter your email"
+          required
+          class="flex-1 px-4 py-3 text-black border rounded-lg focus:outline-none"
+        />
+        <button
+          type="submit"
+          class="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition"
+        >
+          Notify Me
+        </button>
       </form>
       <p id="thank-you" class="mt-4 text-green-400 font-medium hidden">Thank you! We'll keep you posted. 🎉</p>
     </section>
 
     <!-- FOOTER -->
     <footer class="text-center py-6 text-sm text-gray-500">
-      &copy; 2025 Uniment. All rights reserved.
+      &copy; 2025 Uniment. All rights reserved. <br />
+      <span class="text-gray-400">Founded by <strong>Mayur Rane</strong></span>
     </footer>
 
     <!-- SCRIPTS -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>AOS.init(); lucide.createIcons();</script>
+    <script>
+      AOS.init();
+      lucide.createIcons();
+    </script>
     <script>
       document.getElementById('notify-form').addEventListener('submit', function (e) {
         e.preventDefault();
@@ -103,8 +129,6 @@ Because when you understand your numbers, you don’t just run a business — yo
           headingEl.textContent = brandText.slice(0, i);
           i++;
           setTimeout(typeText, 120);
-        } else {
-          
         }
       }
       typeText();
