@@ -5,206 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uniment – Turn Restaurant Data Into Profit</title>
 
-    <!-- Tailwind CDN -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <!-- Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <!-- Icons & Analytics -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Analytics (optional) -->
-    <script defer data-domain="uniment.com" src="https://plausible.io/js/script.js"></script>
+    <script defer data-domain="uniment.ae" src="https://plausible.io/js/script.js"></script>
 
     <style>
+      body { color: black; }
       .fade-up {
         opacity: 0;
         transform: translateY(30px);
         animation: fadeSlideUp 0.6s ease-out forwards;
       }
-      .fade-up.delay {
-        animation-delay: 0.4s;
-      }
+      .fade-up.delay { animation-delay: 0.4s; }
       @keyframes fadeSlideUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        to { opacity: 1; transform: translateY(0); }
       }
     </style>
   </head>
 
-  <body class="bg-gray-50 text-gray-900">
+  <body class="bg-gray-50 text-black">
 
-    <!-- HERO SECTION -->
-    <header class="text-center py-32 px-4 bg-gradient-to-b from-gray-100 to-gray-50 relative">
-      <h1
-        id="typingHeading"
-        class="text-5xl md:text-6xl font-extrabold fade-up
-               bg-gradient-to-r from-purple-500 via-purple-400 to-indigo-500
-               bg-clip-text text-transparent"
-      >
-        Uniment
-      </h1>
+    <!-- HERO -->
+    <header class="text-center py-32 px-4">
+      <h1 id="typingHeading"
+        class="text-6xl font-extrabold fade-up
+        bg-gradient-to-r from-purple-500 via-purple-600 to-indigo-600
+        bg-clip-text text-transparent"
+      ></h1>
 
-      <p class="mt-4 text-gray-500 text-lg fade-up delay">
+      <p class="mt-2 text-gray-700 text-lg fade-up delay">
         Founded by <strong>Mayur Rane</strong>
       </p>
 
       <p class="text-xl mt-6 max-w-xl mx-auto fade-up delay">
-        The all-in-one platform helping restaurants unlock revenue, reduce waste,
-        and win loyal customers — with data.
+        The all-in-one platform helping restaurants unlock revenue, reduce waste, and win loyal customers — with data.
       </p>
 
-      <div class="mt-8 flex flex-wrap justify-center gap-4 fade-up delay">
-        <!-- Notify button -->
-        <a
-          href="#notify"
-          class="px-6 py-3 bg-black text-white rounded-lg font-medium hover:shadow-lg transition"
-        >
+      <div class="mt-10 flex justify-center gap-5 fade-up delay">
+        <a href="#notify"
+          class="px-6 py-3 bg-black text-white rounded-lg font-medium hover:shadow-xl transition">
           Notify Me
         </a>
 
-        <!-- How it works -->
-        <a
-          href="#features"
-          class="px-6 py-3 border border-black text-black rounded-lg font-medium hover:bg-gray-100 transition"
-        >
+        <a href="#features"
+          class="px-6 py-3 border border-black text-black rounded-lg font-medium hover:bg-gray-200 transition">
           How It Works
         </a>
 
-        <!-- 🔥 STRONG ORANGE CTA -->
+        <!-- 🎯 UPDATED CTA BUTTON -->
         <a
-  href="https://paulkpi-frontend-for-frontend.vercel.app/auth/login"
-  class="px-7 py-3 rounded-lg font-semibold text-black
-         bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600
-         border border-orange-600 shadow-lg hover:shadow-xl
-         transition-transform duration-200 transform hover:-translate-y-1"
->
-  🚀 Try our new product
-</a>
+          href="https://paulkpi-frontend-for-frontend.vercel.app/auth/login"
+          class="px-7 py-3 rounded-lg font-semibold text-black
+                 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600
+                 border border-orange-600 shadow-lg hover:shadow-xl
+                 transition-transform duration-200 transform hover:-translate-y-1">
+          🚀 Try our new product
+        </a>
       </div>
     </header>
 
-    <!-- FEATURES INTRO -->
-    <section
-      class="relative py-20 text-center px-4 bg-gradient-to-b from-gray-50 to-white overflow-hidden"
-    >
-      <div class="relative z-10 max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold mb-4 fade-up">
-          We believe better restaurants start with better decisions.
-        </h2>
-        <p class="text-gray-600 text-lg fade-up delay">
-          Uniment turns restaurant data into clarity — so teams can serve smarter,
-          grow faster, and lead with confidence. When you understand your numbers,
-          you don’t just run a business — you build a legacy.
-        </p>
-      </div>
-    </section>
-
-    <!-- FEATURES SECTION -->
-    <section id="features" class="bg-white py-20 px-4">
-      <div class="max-w-6xl mx-auto grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up">
-          <i data-lucide="bar-chart-3" class="w-6 h-6 text-black mb-3"></i>
-          <h3 class="text-lg font-semibold mb-2">Customer Trends</h3>
-          <p class="text-gray-600">
-            Track guest behavior and tailor menus, pricing, and experiences to what
-            your customers love most.
-          </p>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="100">
-          <i data-lucide="package" class="w-6 h-6 text-black mb-3"></i>
-          <h3 class="text-lg font-semibold mb-2">Inventory Mastery</h3>
-          <p class="text-gray-600">
-            Forecast demand, optimize restocks, and reduce costly spoilage with
-            data-driven inventory planning.
-          </p>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="200">
-          <i data-lucide="megaphone" class="w-6 h-6 text-black mb-3"></i>
-          <h3 class="text-lg font-semibold mb-2">Smarter Promotions</h3>
-          <p class="text-gray-600">
-            Run campaigns that actually convert using insight-backed segmentation,
-            timing, and offer design.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA SECTION -->
-    <section id="notify" class="text-center py-20 px-4 bg-black text-white">
-      <h2 class="text-3xl font-bold mb-4">Be First to Get Uniment</h2>
-      <p class="text-gray-300 mb-6">
-        We're launching soon. Sign up to get notified and early access.
+    <!-- SECTION -->
+    <section class="py-20 text-center px-6 bg-white">
+      <h2 class="text-3xl font-bold mb-4 fade-up">
+        We believe better restaurants start with better decisions.
+      </h2>
+      <p class="text-gray-700 text-lg max-w-4xl mx-auto fade-up delay">
+        Uniment turns restaurant data into clarity — so they can serve smarter, grow faster, and lead with confidence.
+        Because when you understand your numbers, you don’t just run a business — you build a legacy.
       </p>
+    </section>
 
-      <form
-        id="notify-form"
-        class="max-w-md mx-auto flex flex-col sm:flex-row gap-3"
-      >
-        <input
-          id="email"
-          type="email"
-          placeholder="Enter your email"
-          required
-          class="flex-1 px-4 py-3 text-black border rounded-lg focus:outline-none"
-        />
-        <button
-          type="submit"
-          class="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition"
-        >
+    <!-- FEATURES -->
+    <section id="features" class="bg-gray-100 py-20 px-6">
+      <div class="max-w-6xl mx-auto grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+
+        <div class="bg-white p-6 rounded-xl shadow" data-aos="fade-up">
+          <i data-lucide="bar-chart" class="w-7 h-7 text-purple-600 mb-3"></i>
+          <h3 class="text-lg font-semibold mb-2">Customer Trends</h3>
+          <p class="text-gray-600">Track behavior and tailor offerings to what your guests love most.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow" data-aos="fade-up" data-aos-delay="100">
+          <i data-lucide="package" class="w-7 h-7 text-purple-600 mb-3"></i>
+          <h3 class="text-lg font-semibold mb-2">Inventory Mastery</h3>
+          <p class="text-gray-600">Cut waste, predict inventory needs and avoid spoilage.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow" data-aos="fade-up" data-aos-delay="200">
+          <i data-lucide="megaphone" class="w-7 h-7 text-purple-600 mb-3"></i>
+          <h3 class="text-lg font-semibold mb-2">Smarter Promotions</h3>
+          <p class="text-gray-600">Run campaigns with data-backed confidence and timing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EMAIL FORM -->
+    <section id="notify" class="text-center py-20 bg-black text-white">
+      <h2 class="text-3xl font-bold mb-2">Be First to Get Uniment</h2>
+      <p class="mb-6 text-gray-300">Launching soon. Sign up for early access.</p>
+
+      <form id="notify-form" class="max-w-xl mx-auto flex flex-col sm:flex-row gap-3">
+        <input id="email" type="email" placeholder="Enter your email" required class="flex-1 px-4 py-3 text-black rounded" />
+        <button type="submit" class="px-6 py-3 bg-white text-black rounded font-medium hover:bg-gray-200">
           Notify Me
         </button>
       </form>
 
-      <p
-        id="thank-you"
-        class="mt-4 text-green-400 font-medium hidden"
-      >
-        Thank you! We'll keep you posted 🎉
-      </p>
+      <p id="thank-you" class="mt-4 text-green-400 font-medium hidden">Thanks! We'll notify you 🎉</p>
     </section>
 
     <!-- FOOTER -->
-    <footer class="text-center py-6 text-sm text-gray-500">
-      &copy; 2025 Uniment. All rights reserved.
-      <br />
-      <span class="text-gray-400">
-        Founded by <strong>Mayur Rane</strong>
-      </span>
+    <footer class="text-center py-6 text-sm text-gray-600">
+      © 2025 Uniment. All rights reserved. <br />
+      Built by <strong>Mayur Rane</strong>
     </footer>
 
     <!-- SCRIPTS -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
-      AOS.init();
-      lucide.createIcons();
-    </script>
+      AOS.init(); lucide.createIcons();
 
-    <script>
-      // Simple notify thank-you state
-      document
-        .getElementById("notify-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          document.getElementById("thank-you").classList.remove("hidden");
-          this.reset();
-        });
+      document.getElementById("notify-form").addEventListener("submit", e => {
+        e.preventDefault();
+        document.getElementById("thank-you").classList.remove("hidden");
+      });
 
-      // Optional typing effect (if you want it; right now heading already has "Uniment")
-      const headingEl = document.getElementById("typingHeading");
-      const brandText = "Uniment";
+      const heading = document.getElementById("typingHeading");
+      const brand = "Uniment";
       let i = 0;
-      function typeText() {
-        if (i <= brandText.length) {
-          headingEl.textContent = brandText.slice(0, i);
-          i++;
-          setTimeout(typeText, 120);
+      (function type() {
+        if (i <= brand.length) {
+          heading.textContent = brand.slice(0, i++);
+          setTimeout(type, 120);
         }
-      }
-      typeText();
+      })();
     </script>
   </body>
 </html>
