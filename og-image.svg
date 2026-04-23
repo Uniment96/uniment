@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06080f"/>
+      <stop offset="100%" stop-color="#0d1030"/>
+    </linearGradient>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#93c5fd"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="25%" cy="30%">
+      <stop offset="0%" stop-color="rgba(109,40,217,0.5)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="75%" cy="20%">
+      <stop offset="0%" stop-color="rgba(30,64,175,0.4)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <ellipse cx="300" cy="200" rx="500" ry="350" fill="url(#orb1)" opacity="0.6"/>
+  <ellipse cx="900" cy="150" rx="450" ry="300" fill="url(#orb2)" opacity="0.5"/>
+  <!-- Logo badge -->
+  <rect x="80" y="80" width="72" height="72" rx="16" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="116" y="132" font-family="system-ui" font-size="40" font-weight="800" text-anchor="middle" fill="url(#grad)">U</text>
+  <!-- Brand name -->
+  <text x="172" y="128" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="800" fill="white" letter-spacing="-1">Uniment</text>
+  <!-- Main headline -->
+  <text x="80" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="white" letter-spacing="-2">Turn restaurant data</text>
+  <text x="80" y="380" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="url(#grad)" letter-spacing="-2">into profit.</text>
+  <!-- Sub -->
+  <text x="80" y="450" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="rgba(226,232,240,0.65)">AI-powered analytics for UAE &amp; GCC restaurants · uniment.ae</text>
+  <!-- Pills -->
+  <rect x="80" y="500" width="190" height="44" rx="22" fill="rgba(167,139,250,0.12)" stroke="rgba(167,139,250,0.3)" stroke-width="1"/>
+  <text x="175" y="527" font-family="system-ui" font-size="16" font-weight="700" fill="#c4b5fd" text-anchor="middle">RevenueRoll</text>
+  <rect x="290" y="500" width="150" height="44" rx="22" fill="rgba(52,211,153,0.12)" stroke="rgba(52,211,153,0.3)" stroke-width="1"/>
+  <text x="365" y="527" font-family="system-ui" font-size="16" font-weight="700" fill="#6ee7b7" text-anchor="middle">FoodLoop</text>
+  <rect x="460" y="500" width="170" height="44" rx="22" fill="rgba(96,165,250,0.12)" stroke="rgba(96,165,250,0.3)" stroke-width="1"/>
+  <text x="545" y="527" font-family="system-ui" font-size="16" font-weight="700" fill="#93c5fd" text-anchor="middle">Dubai · AED</text>
+</svg>

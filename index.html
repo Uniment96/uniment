@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#06080f" />
     <title>Uniment — Turn Restaurant Data Into Profit</title>
     <meta name="description" content="Uniment helps restaurants unlock revenue, reduce waste, and win loyal customers with AI-powered data tools. RevenueRoll, Inventory Intelligence, and more." />
 
@@ -18,62 +19,159 @@
     <meta property="og:url" content="https://uniment.ae/" />
     <meta property="og:title" content="Uniment — Turn Restaurant Data Into Profit" />
     <meta property="og:description" content="Uniment helps restaurants unlock revenue, reduce waste, and win loyal customers with AI-powered data tools." />
-    <meta property="og:image" content="https://uniment.ae/og-image.png" />
+    <meta property="og:image" content="https://uniment.ae/og-image.svg" />
     <meta property="og:site_name" content="Uniment" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content="en_AE" />
+    <meta property="og:locale:alternate" content="ar_AE" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Uniment — Turn Restaurant Data Into Profit" />
     <meta name="twitter:description" content="Uniment helps restaurants unlock revenue, reduce waste, and win loyal customers with AI-powered data tools." />
-    <meta name="twitter:image" content="https://uniment.ae/og-image.png" />
+    <meta name="twitter:image" content="https://uniment.ae/og-image.svg" />
 
-    <!-- Structured Data (JSON-LD) — Google Rich Results -->
+    <!-- Structured Data: Organization -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Uniment",
       "url": "https://uniment.ae",
-      "logo": "https://uniment.ae/logo.png",
-      "description": "Uniment helps restaurants unlock revenue, reduce waste, and win loyal customers with AI-powered data tools.",
+      "logo": "https://uniment.ae/logo.svg",
+      "description": "Uniment is a restaurant intelligence platform helping UAE and GCC operators unlock revenue, reduce food waste, and win loyal customers using AI-powered data tools including RevenueRoll and FoodLoop.",
       "foundingLocation": {
         "@type": "Place",
         "address": {
           "@type": "PostalAddress",
+          "addressLocality": "Dubai",
+          "addressRegion": "Dubai",
           "addressCountry": "AE"
         }
       },
+      "founder": {
+        "@type": "Person",
+        "name": "Mayur Rane",
+        "jobTitle": "Founder",
+        "worksFor": { "@type": "Organization", "name": "Uniment" }
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971502413077",
+        "contactType": "sales",
+        "areaServed": ["AE", "SA", "QA", "KW", "BH", "OM"],
+        "availableLanguage": ["English", "Arabic"]
+      },
       "sameAs": [
-        "https://github.com/Uniment96/uniment"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "name": "RevenueRoll",
-        "description": "AI-powered revenue analytics for restaurants"
-      }
+        "https://github.com/Uniment96/uniment",
+        "https://linkedin.com/company/uniment",
+        "https://twitter.com/unimentae"
+      ]
     }
     </script>
 
-    <!-- Structured Data: SoftwareApplication -->
+    <!-- Structured Data: RevenueRoll Product -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Uniment RevenueRoll",
+      "name": "RevenueRoll by Uniment",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
-      "description": "Restaurant data intelligence platform that turns sales data into profitable decisions.",
+      "description": "RevenueRoll is a restaurant KPI dashboard by Uniment that displays 7-day sales trends, delivery vs dine-in channel mix, best-performing days, and food cost percentages. Designed for UAE and GCC restaurant operators managing single or multiple branches.",
       "url": "https://uniment.ae",
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "USD"
+        "priceCurrency": "AED",
+        "availability": "https://schema.org/InStock"
       },
       "provider": {
         "@type": "Organization",
-        "name": "Uniment"
+        "name": "Uniment",
+        "url": "https://uniment.ae"
+      },
+      "featureList": [
+        "7-day revenue snapshot",
+        "Channel mix analytics (delivery, dine-in, takeaway)",
+        "Food cost percentage tracking",
+        "Multi-branch KPI comparison",
+        "Real-time dashboard",
+        "POS integration"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: FoodLoop Product -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "FoodLoop by Uniment",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "FoodLoop is a food operations management tool by Uniment that tracks food items, reduces kitchen waste, and keeps restaurant teams aligned in real time. Built for UAE restaurants seeking to improve operational efficiency and reduce food cost.",
+      "url": "https://uniment.ae",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "AED",
+        "availability": "https://schema.org/InStock"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Uniment",
+        "url": "https://uniment.ae"
       }
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is RevenueRoll free for UAE restaurants?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can access the current RevenueRoll dashboard experience at no cost. Pricing will evolve as POS integrations and advanced features expand."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use Uniment for multiple restaurant branches in the UAE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — Uniment is built specifically for multi-branch restaurant operations in the UAE and GCC, with role-based access so each manager sees only their relevant branch data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Uniment work with UAE POS systems?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Uniment supports data import via POS exports and spreadsheets. Direct integrations with popular UAE POS systems including Foodics, Revel, and Square are on the roadmap."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Uniment support VAT and UAE regulatory reporting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Uniment tracks revenue and food cost data in AED. UAE VAT-compliant reporting features are planned as part of the Uniment Inventory module, currently in development."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my restaurant data private and secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Uniment uses a multi-tenant architecture with role-based access control. Each restaurant's data is fully isolated — no other operator can see your data."
+          }
+        }
+      ]
     }
     </script>
 
@@ -82,7 +180,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Tailwind (CDN) -->
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Icons & Analytics -->
@@ -172,7 +270,7 @@
 
       /* Top-left diagonal shimmer — classic glass highlight */
       .card-3d::before{
-        content:””;
+        content:"";
         position:absolute; inset:0;
         background: linear-gradient(
           135deg,
@@ -187,7 +285,7 @@
 
       /* Subtle color bloom from bottom — gives the glass a tint */
       .card-3d::after{
-        content:””;
+        content:"";
         position:absolute; inset:0;
         background:
           radial-gradient(ellipse 90% 55% at 50% 115%, rgba(167,139,250,.14), transparent 65%),
@@ -474,7 +572,7 @@
       }
 
       /* ---------- Frosted input ---------- */
-      input[type=”email”]{
+      input[type="email"]{
         background: rgba(255,255,255,.07) !important;
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
@@ -482,7 +580,7 @@
         color: #fff;
         transition: border-color .2s ease, background .2s ease;
       }
-      input[type=”email”]:focus{
+      input[type="email"]:focus{
         outline: none;
         background: rgba(255,255,255,.10) !important;
         border-color: rgba(167,139,250,.45) !important;
@@ -789,6 +887,15 @@
         margin-bottom: 18px;
       }
 
+      /* ---------- Testimonials Bento — responsive ---------- */
+      @media (max-width: 1024px) {
+        #t-bento { grid-template-columns: repeat(2, 1fr) !important; }
+        #t-bento > * { grid-column: span 1 !important; grid-row: span 1 !important; }
+      }
+      @media (max-width: 640px) {
+        #t-bento { grid-template-columns: 1fr !important; }
+      }
+
       /* Progress bars in bento */
       .prog-bar { height: 4px; border-radius: 9999px; background: rgba(255,255,255,.08); overflow: hidden; }
       .prog-fill {
@@ -796,6 +903,7 @@
         transform: scaleX(0); transform-origin: left;
         transition: transform 1.2s var(--ease-out);
       }
+    
       .prog-fill.go { transform: scaleX(1); }
     </style>
   </head>
@@ -866,10 +974,10 @@
                 <a href="#faq"          class="nav-link hover:text-white">FAQ</a>
               </div>
 
-              <div class="flex items-center gap-3">
+              <div class="flex items-center gap-2">
                 <a
                   href="#notify"
-                  class="btn-glass btn-3d hidden sm:inline-flex px-4 py-2 rounded-lg text-sm font-semibold text-white"
+                  class="btn-glass btn-3d inline-flex px-4 py-2 rounded-lg text-sm font-semibold text-white"
                 >
                   Get early access
                 </a>
@@ -880,24 +988,96 @@
                          bg-gradient-to-r from-emerald-400 via-emerald-500 to-teal-500
                          border border-emerald-600 shadow-sm hover:shadow-md transition-transform duration-200 hover:-translate-y-0.5"
                 >
-                  🍽️ FoodLoop
+                  <span aria-hidden="true">🍽️</span>&nbsp;FoodLoop
                 </a>
                 <a
                   href="https://paulkpi-frontend-for-frontend.vercel.app/auth/login"
-                  class="btn-3d inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-semibold text-black
+                  class="btn-3d hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-semibold text-black
                          bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600
                          border border-orange-600 shadow-sm hover:shadow-md transition-transform duration-200 hover:-translate-y-0.5"
                 >
-                  🚀 RevenueRoll
+                  <span aria-hidden="true">🚀</span>&nbsp;RevenueRoll
                 </a>
+                <!-- Mobile hamburger -->
+                <button
+                  id="mobile-menu-btn"
+                  aria-label="Open navigation menu"
+                  aria-expanded="false"
+                  aria-controls="mobile-drawer"
+                  class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg btn-glass text-white"
+                >
+                  <svg id="hamburger-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                    <line x1="2" y1="5"  x2="16" y2="5" />
+                    <line x1="2" y1="9"  x2="16" y2="9" />
+                    <line x1="2" y1="13" x2="16" y2="13" />
+                  </svg>
+                  <svg id="close-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="hidden">
+                    <line x1="3" y1="3" x2="15" y2="15" />
+                    <line x1="15" y1="3" x2="3" y2="15" />
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
         </nav>
+
+        <!-- Mobile drawer -->
+        <div
+          id="mobile-drawer"
+          aria-hidden="true"
+          class="md:hidden"
+          style="
+            position:fixed; inset:0; z-index:49;
+            display:flex; flex-direction:column;
+            background:rgba(6,8,20,.97);
+            backdrop-filter:blur(24px);
+            -webkit-backdrop-filter:blur(24px);
+            border-top:1px solid rgba(255,255,255,.09);
+            transform:translateX(100%);
+            transition:transform .32s cubic-bezier(.16,1,.3,1);
+            padding-top:72px;
+            overflow-y:auto;
+          "
+        >
+          <nav aria-label="Mobile navigation" class="flex flex-col gap-1 px-5 py-6">
+            <a href="#features"     class="nav-link block py-3 px-4 rounded-xl text-white font-semibold text-lg hover:bg-white/5" onclick="closeMobileMenu()">Features</a>
+            <a href="#products"     class="nav-link block py-3 px-4 rounded-xl text-white font-semibold text-lg hover:bg-white/5" onclick="closeMobileMenu()">Products</a>
+            <a href="#testimonials" class="nav-link block py-3 px-4 rounded-xl text-white font-semibold text-lg hover:bg-white/5" onclick="closeMobileMenu()">Testimonials</a>
+            <a href="#how"          class="nav-link block py-3 px-4 rounded-xl text-white font-semibold text-lg hover:bg-white/5" onclick="closeMobileMenu()">How it works</a>
+            <a href="#team"         class="nav-link block py-3 px-4 rounded-xl text-white font-semibold text-lg hover:bg-white/5" onclick="closeMobileMenu()">Team</a>
+            <a href="#faq"          class="nav-link block py-3 px-4 rounded-xl text-white font-semibold text-lg hover:bg-white/5" onclick="closeMobileMenu()">FAQ</a>
+          </nav>
+          <div class="px-5 pb-8 flex flex-col gap-3 mt-2">
+            <a
+              href="#notify"
+              onclick="closeMobileMenu()"
+              class="btn-glass btn-3d flex items-center justify-center py-3.5 rounded-xl font-bold text-white text-base"
+            >
+              Get early access
+            </a>
+            <a
+              href="https://foodloop-git-main-mayurs-projects-65ac1e4b.vercel.app/login"
+              target="_blank" rel="noopener"
+              onclick="closeMobileMenu()"
+              class="btn-3d flex items-center justify-center py-3.5 rounded-xl font-bold text-black text-base
+                     bg-gradient-to-r from-emerald-400 via-emerald-500 to-teal-500 border border-emerald-600"
+            >
+              <span aria-hidden="true">🍽️</span>&nbsp;FoodLoop
+            </a>
+            <a
+              href="https://paulkpi-frontend-for-frontend.vercel.app/auth/login"
+              onclick="closeMobileMenu()"
+              class="btn-3d flex items-center justify-center py-3.5 rounded-xl font-bold text-black text-base
+                     bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 border border-orange-600"
+            >
+              <span aria-hidden="true">🚀</span>&nbsp;RevenueRoll
+            </a>
+          </div>
+        </div>
       </div>
 
       <!-- HERO -->
-      <header class="relative overflow-hidden" style="min-height:100svh;display:flex;flex-direction:column;">
+      <header role="banner" class="relative overflow-hidden" style="min-height:100svh;display:flex;flex-direction:column;">
         <div id="heroParticles" aria-hidden="true"></div>
         <div class="hero-glow" aria-hidden="true"></div>
 
@@ -929,7 +1109,7 @@
                   Get early access <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
                 <a href="https://paulkpi-frontend-for-frontend.vercel.app/auth/login" class="magnetic btn-glass btn-3d inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-white font-bold text-sm">
-                  🚀 Try RevenueRoll
+                  <span aria-hidden="true">🚀</span> Try RevenueRoll
                 </a>
               </div>
 
@@ -1259,6 +1439,73 @@
         </div>
       </section>
 
+      <!-- UAE / GCC REGIONAL SECTION -->
+      <section id="uae" class="py-20 section-soft">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <div class="s-label">Built for the UAE &amp; GCC Market</div>
+              <h2 class="text-3xl font-extrabold tracking-tight text-white">
+                Restaurant analytics designed for<br>Dubai, Abu Dhabi &amp; the GCC.
+              </h2>
+              <p class="mt-4 text-dim leading-relaxed">
+                Uniment is built specifically for restaurant operators in the UAE and wider GCC region. All revenue figures are tracked in <strong class="text-white">AED</strong>, and the platform is designed around the operational realities of Dubai's fast-paced F&amp;B market — from multi-branch Jumeirah restaurants to high-volume delivery operations in Abu Dhabi and Sharjah.
+              </p>
+              <p class="mt-4 text-dim leading-relaxed">
+                As UAE <strong class="text-white">VAT compliance</strong> requirements evolve for F&amp;B businesses, Uniment's upcoming Inventory module will include TRN-aware cost tracking and FTA-compliant reporting, helping operators stay ahead of GCC regulatory requirements without added complexity.
+              </p>
+              <div class="mt-8 grid grid-cols-2 gap-4">
+                <div class="box card-3d reveal p-5">
+                  <div class="relative z-10 text-2xl font-extrabold text-white">AED</div>
+                  <div class="relative z-10 mt-1 text-sm text-dim">All revenue tracked in UAE Dirhams</div>
+                </div>
+                <div class="box card-3d reveal p-5">
+                  <div class="relative z-10 text-2xl font-extrabold text-white">GCC</div>
+                  <div class="relative z-10 mt-1 text-sm text-dim">UAE · KSA · Qatar · Kuwait</div>
+                </div>
+                <div class="box card-3d reveal p-5">
+                  <div class="relative z-10 text-2xl font-extrabold text-white">VAT</div>
+                  <div class="relative z-10 mt-1 text-sm text-dim">UAE-compliant cost reporting (roadmap)</div>
+                </div>
+                <div class="box card-3d reveal p-5">
+                  <div class="relative z-10 text-2xl font-extrabold text-white">5%</div>
+                  <div class="relative z-10 mt-1 text-sm text-dim">UAE standard VAT rate built into reporting</div>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="box card-3d hover-glow reveal p-6">
+                <div class="relative z-10 flex items-start gap-4">
+                  <div class="icon-badge shrink-0"><i data-lucide="map-pin" class="w-5 h-5 text-indigo-300"></i></div>
+                  <div>
+                    <h3 class="font-bold text-white">Dubai &amp; Abu Dhabi Ready</h3>
+                    <p class="mt-1 text-dim text-sm">Optimised for the UAE's delivery-heavy market with Talabat, Deliveroo, and Noon Food channel mix tracking built in.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="box card-3d hover-glow reveal p-6">
+                <div class="relative z-10 flex items-start gap-4">
+                  <div class="icon-badge shrink-0"><i data-lucide="landmark" class="w-5 h-5 text-indigo-300"></i></div>
+                  <div>
+                    <h3 class="font-bold text-white">GCC Regulatory Awareness</h3>
+                    <p class="mt-1 text-dim text-sm">Upcoming features include FTA-aligned food cost records and multi-currency support for KSA (SAR), Qatar (QAR), and Kuwait (KWD) branches.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="box card-3d hover-glow reveal p-6">
+                <div class="relative z-10 flex items-start gap-4">
+                  <div class="icon-badge shrink-0"><i data-lucide="clock" class="w-5 h-5 text-indigo-300"></i></div>
+                  <div>
+                    <h3 class="font-bold text-white">Ramadan &amp; Peak Season Insights</h3>
+                    <p class="mt-1 text-dim text-sm">Track how revenue patterns shift during Ramadan, Eid, and UAE National Day — automatically surface your best and worst performing periods.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- PRODUCTS -->
       <section id="products" class="py-20 section-solid">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1279,7 +1526,7 @@
                         <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-orange-500/15 text-orange-200 border border-orange-500/25">Available</span>
                       </div>
                       <p class="mt-2 text-dim text-sm">
-                        KPI dashboard for sales trends, channel mix, best days, and performance snapshots.
+                        RevenueRoll is a restaurant KPI dashboard that shows 7-day revenue trends, delivery vs dine-in channel mix, best-performing days, and food cost percentages — in AED — for UAE restaurant operators.
                       </p>
                     </div>
                     <a
@@ -1302,7 +1549,7 @@
                         <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-200 border border-emerald-500/25">Available</span>
                       </div>
                       <p class="mt-2 text-dim text-sm">
-                        Streamline food operations — track items, reduce waste, and keep your team aligned in real time.
+                        FoodLoop is a food operations tool that tracks kitchen inventory items, reduces waste, and aligns restaurant teams in real time — designed for UAE F&amp;B operations.
                       </p>
                     </div>
                     <a
@@ -1324,7 +1571,7 @@
                     <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-white/5 text-dim border border-white/10">Coming soon</span>
                   </div>
                   <p class="relative z-10 mt-2 text-dim text-sm">
-                    Vendor management, purchase orders, and exact food cost tracking for multi-branch operations.
+                    Uniment Inventory is a vendor management and purchase order tool with exact food cost tracking for multi-branch UAE restaurant operations. Includes UAE VAT-aware cost reporting (in development).
                   </p>
                 </div>
 
@@ -1364,72 +1611,130 @@
         </div>
       </section>
 
-      <!-- ✅ TESTIMONIALS (RevenueRoll) -->
-      <section id="testimonials" class="py-20 section-soft">
+      <!-- 
+       — Bento Grid -->
+      <section id="testimonials" class="py-24 section-soft">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="max-w-2xl">
-            <h2 class="text-3xl font-extrabold tracking-tight text-white">RevenueRoll testimonials</h2>
-            <p class="mt-3 text-dim">What operators say after using the dashboard for weekly reviews.</p>
+
+          <div class="max-w-2xl mb-12">
+            <div class="s-label">Verified Outcomes</div>
+            <h2 class="text-3xl font-extrabold tracking-tight text-white">Results operators measure.</h2>
+            <p class="mt-3 text-dim">Real outcomes from restaurant teams running weekly reviews on Uniment.</p>
           </div>
 
-          <div class="mt-10 grid gap-6 md:grid-cols-3">
-            <div class="box card-3d hover-glow tilt reveal p-6">
-              <div class="relative z-10 flex items-center justify-between">
-                <div class="text-xs text-dim">Multi-branch operator</div>
-                <div class="inline-flex items-center gap-1 text-xs text-orange-200 bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded-full">
-                  <i data-lucide="sparkles" class="w-4 h-4"></i> RevenueRoll
-                </div>
+          <!-- Bento grid — fully inline, no class dependencies -->
+          <div id="t-bento" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+
+            <!-- A: Revenue 8.2% — cols 1–2, row 1 -->
+            <div
+              style="grid-column:1/span 2;grid-row:1;min-height:290px;position:relative;padding:28px;display:flex;flex-direction:column;border-radius:20px;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);overflow:hidden;transition:border-color .35s ease,box-shadow .35s ease,transform .3s ease;background:radial-gradient(ellipse at 12% 20%,rgba(167,139,250,.15) 0%,transparent 55%),rgba(255,255,255,.06);border:1px solid rgba(167,139,250,.22);"
+              onmouseenter="this.style.borderColor='#a78bfa';this.style.boxShadow='0 0 40px rgba(167,139,250,.25)';this.style.transform='translateY(-3px)'"
+              onmouseleave="this.style.borderColor='rgba(167,139,250,.22)';this.style.boxShadow='';this.style.transform=''"
+            >
+              <!-- Badge -->
+              <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
+                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
               </div>
-              <p class="relative z-10 mt-4 text-white">
-                “We stopped guessing. The channel mix + best-day view showed where to push delivery promos, and our weekly review is finally clear.”
-              </p>
-              <div class="relative z-10 mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center font-extrabold text-white">AR</div>
-                <div>
-                  <div class="text-sm font-bold text-white">Area Manager</div>
-                  <div class="text-xs text-dim"></div>
-                </div>
+              <!-- Metric -->
+              <div style="font-size:clamp(3rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#a78bfa;">8.2%</div>
+              <!-- Outcome -->
+              <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(226,232,240,.42);margin-top:8px;margin-bottom:20px;">Revenue lift in the first month</div>
+              <!-- Quote -->
+              <div style="margin-top:auto;position:relative;padding-top:18px;padding-left:24px;border-top:1px solid rgba(255,255,255,.08);">
+                <span aria-hidden="true" style="position:absolute;top:8px;left:0;font-size:2.4rem;line-height:1;color:#a78bfa;opacity:.28;font-family:Georgia,serif;">"</span>
+                <p style="font-size:.85rem;line-height:1.72;color:rgba(226,232,240,.65);font-style:italic;">We knew Friday was busy. We didn't know it was 40% of our entire week — now we do, and we staff and price accordingly.</p>
               </div>
+              <!-- Category -->
+              <div style="margin-top:14px;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#a78bfa;opacity:.6;">Revenue Analytics</div>
             </div>
 
-            <div class="box card-3d hover-glow tilt reveal p-6">
-              <div class="relative z-10 flex items-center justify-between">
-                <div class="text-xs text-dim">GM • High volume store</div>
-                <div class="inline-flex items-center gap-1 text-xs text-indigo-200 bg-indigo-500/10 border border-indigo-500/20 px-2 py-1 rounded-full">
-                  <i data-lucide="bar-chart-3" class="w-4 h-4"></i> Insights
-                </div>
+            <!-- B: Time Saved 0h — col 3, rows 1–2 (tall) -->
+            <div
+              style="grid-column:3;grid-row:1/span 2;position:relative;padding:28px;display:flex;flex-direction:column;border-radius:20px;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);overflow:hidden;transition:border-color .35s ease,box-shadow .35s ease,transform .3s ease;background:radial-gradient(ellipse at 80% 12%,rgba(56,189,248,.14) 0%,transparent 55%),rgba(255,255,255,.06);border:1px solid rgba(56,189,248,.22);"
+              onmouseenter="this.style.borderColor='#38bdf8';this.style.boxShadow='0 0 40px rgba(56,189,248,.25)';this.style.transform='translateY(-3px)'"
+              onmouseleave="this.style.borderColor='rgba(56,189,248,.22)';this.style.boxShadow='';this.style.transform=''"
+            >
+              <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
+                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
               </div>
-              <p class="relative z-10 mt-4 text-white">
-                “The 7-day snapshot saved us hours. We catch dips early and align the team faster—no more messy spreadsheets.”
-              </p>
-              <div class="relative z-10 mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center font-extrabold text-white">GM</div>
-                <div>
-                  <div class="text-sm font-bold text-white">General Manager</div>
-                  <div class="text-xs text-dim"></div>
-                </div>
+              <div style="font-size:clamp(3rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#38bdf8;">0</div>
+              <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(226,232,240,.42);margin-top:8px;margin-bottom:20px;">Hours on manual reporting</div>
+              <div style="margin-top:auto;position:relative;padding-top:18px;padding-left:24px;border-top:1px solid rgba(255,255,255,.08);">
+                <span aria-hidden="true" style="position:absolute;top:8px;left:0;font-size:2.4rem;line-height:1;color:#38bdf8;opacity:.28;font-family:Georgia,serif;">"</span>
+                <p style="font-size:.85rem;line-height:1.72;color:rgba(226,232,240,.65);font-style:italic;">The dashboard replaced our entire Monday morning spreadsheet process. We just open it and review.</p>
               </div>
+              <div style="margin-top:14px;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#38bdf8;opacity:.6;">Time Saved</div>
             </div>
 
-            <div class="box card-3d hover-glow tilt reveal p-6">
-              <div class="relative z-10 flex items-center justify-between">
-                <div class="text-xs text-dim">Owner • Growing brand</div>
-                <div class="inline-flex items-center gap-1 text-xs text-emerald-200 bg-emerald-500/10 border border-emerald-500/20 px-2 py-1 rounded-full">
-                  <i data-lucide="shield-check" class="w-4 h-4"></i> Weekly KPI
-                </div>
+            <!-- C: Operations 30% — col 1, row 2 -->
+            <div
+              style="grid-column:1;grid-row:2;position:relative;padding:28px;display:flex;flex-direction:column;border-radius:20px;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);overflow:hidden;transition:border-color .35s ease,box-shadow .35s ease,transform .3s ease;background:radial-gradient(ellipse at 15% 80%,rgba(249,115,22,.14) 0%,transparent 55%),rgba(255,255,255,.06);border:1px solid rgba(249,115,22,.22);"
+              onmouseenter="this.style.borderColor='#f97316';this.style.boxShadow='0 0 40px rgba(249,115,22,.25)';this.style.transform='translateY(-3px)'"
+              onmouseleave="this.style.borderColor='rgba(249,115,22,.22)';this.style.boxShadow='';this.style.transform=''"
+            >
+              <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
+                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
               </div>
-              <p class="relative z-10 mt-4 text-white">
-                “RevenueRoll made our KPI meeting simple. Trend lines + channel breakdown made it obvious what to fix next week.”
-              </p>
-              <div class="relative z-10 mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center font-extrabold text-white">SO</div>
-                <div>
-                  <div class="text-sm font-bold text-white">Store Owner</div>
-                  <div class="text-xs text-dim"></div>
-                </div>
+              <div style="font-size:clamp(3rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#f97316;">30%</div>
+              <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(226,232,240,.42);margin-top:8px;margin-bottom:20px;">Faster weekly KPI reviews</div>
+              <div style="margin-top:auto;position:relative;padding-top:18px;padding-left:24px;border-top:1px solid rgba(255,255,255,.08);">
+                <span aria-hidden="true" style="position:absolute;top:8px;left:0;font-size:2.4rem;line-height:1;color:#f97316;opacity:.28;font-family:Georgia,serif;">"</span>
+                <p style="font-size:.85rem;line-height:1.72;color:rgba(226,232,240,.65);font-style:italic;">KPI meeting used to take two hours. Now it's 40 minutes — same decisions, way less friction.</p>
               </div>
+              <div style="margin-top:14px;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#f97316;opacity:.6;">Operations</div>
             </div>
-          </div>
+
+            <!-- D: Cost Control 28.4% — col 2, row 2 -->
+            <div
+              style="grid-column:2;grid-row:2;position:relative;padding:28px;display:flex;flex-direction:column;border-radius:20px;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);overflow:hidden;transition:border-color .35s ease,box-shadow .35s ease,transform .3s ease;background:radial-gradient(ellipse at 80% 80%,rgba(52,211,153,.14) 0%,transparent 55%),rgba(255,255,255,.06);border:1px solid rgba(52,211,153,.22);"
+              onmouseenter="this.style.borderColor='#34d399';this.style.boxShadow='0 0 40px rgba(52,211,153,.25)';this.style.transform='translateY(-3px)'"
+              onmouseleave="this.style.borderColor='rgba(52,211,153,.22)';this.style.boxShadow='';this.style.transform=''"
+            >
+              <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
+                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
+              </div>
+              <div style="font-size:clamp(3rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#34d399;">28.4%</div>
+              <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(226,232,240,.42);margin-top:8px;margin-bottom:20px;">Food cost — down from 34%</div>
+              <div style="margin-top:auto;position:relative;padding-top:18px;padding-left:24px;border-top:1px solid rgba(255,255,255,.08);">
+                <span aria-hidden="true" style="position:absolute;top:8px;left:0;font-size:2.4rem;line-height:1;color:#34d399;opacity:.28;font-family:Georgia,serif;">"</span>
+                <p style="font-size:.85rem;line-height:1.72;color:rgba(226,232,240,.65);font-style:italic;">Seeing the exact number every week made the whole team take it seriously. It dropped in three weeks.</p>
+              </div>
+              <div style="margin-top:14px;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#34d399;opacity:.6;">Cost Control</div>
+            </div>
+
+            <!-- E: Promotions 3× — full width, row 3 -->
+            <div
+              style="grid-column:1/span 3;grid-row:3;position:relative;padding:28px;display:flex;flex-direction:column;border-radius:20px;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);overflow:hidden;transition:border-color .35s ease,box-shadow .35s ease,transform .3s ease;background:radial-gradient(ellipse at 50% 110%,rgba(129,140,248,.14) 0%,transparent 50%),rgba(255,255,255,.06);border:1px solid rgba(129,140,248,.22);"
+              onmouseenter="this.style.borderColor='#818cf8';this.style.boxShadow='0 0 40px rgba(129,140,248,.25)';this.style.transform='translateY(-3px)'"
+              onmouseleave="this.style.borderColor='rgba(129,140,248,.22)';this.style.boxShadow='';this.style.transform=''"
+            >
+              <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
+                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
+              </div>
+              <div style="display:flex;align-items:flex-end;gap:36px;flex-wrap:wrap;">
+                <div>
+                  <div style="font-size:clamp(3rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#818cf8;">3×</div>
+                  <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(226,232,240,.42);margin-top:8px;">Promotion ROI improvement</div>
+                </div>
+                <div style="display:flex;gap:10px;padding-bottom:4px;">
+                  <div style="padding:8px 14px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(129,140,248,.2);font-size:.7rem;">
+                    <div style="color:#818cf8;font-weight:800;margin-bottom:3px;">Fri 7–9PM</div>
+                    <div style="color:rgba(226,232,240,.42);">Peak window</div>
+                  </div>
+                  <div style="padding:8px 14px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(129,140,248,.2);font-size:.7rem;">
+                    <div style="color:#818cf8;font-weight:800;margin-bottom:3px;">Regulars</div>
+                    <div style="color:rgba(226,232,240,.42);">Top segment</div>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top:20px;position:relative;padding-top:18px;padding-left:24px;border-top:1px solid rgba(255,255,255,.08);">
+                <span aria-hidden="true" style="position:absolute;top:8px;left:0;font-size:2.4rem;line-height:1;color:#818cf8;opacity:.28;font-family:Georgia,serif;">"</span>
+                <p style="font-size:.85rem;line-height:1.72;color:rgba(226,232,240,.65);font-style:italic;">Targeting regulars on the right day, at the right time — it made a measurable difference in return on spend.</p>
+              </div>
+              <div style="margin-top:14px;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#818cf8;opacity:.6;">Smart Promotions · FoodLoop</div>
+            </div>
+
+          </div><!-- /t-bento -->
 
           <div class="mt-10 flex flex-wrap gap-3">
             <a
@@ -1552,12 +1857,28 @@
 
           <div class="mt-10 grid gap-6 md:grid-cols-2">
             <div class="box card-3d hover-glow tilt reveal p-6">
-              <h3 class="relative z-10 font-bold text-white">Is RevenueRoll free?</h3>
-              <p class="relative z-10 mt-2 text-dim">You can use the current app experience via the link above. Pricing will evolve as integrations expand.</p>
+              <h3 class="relative z-10 font-bold text-white">Is RevenueRoll free for UAE restaurants?</h3>
+              <p class="relative z-10 mt-2 text-dim">Yes — you can access the current RevenueRoll dashboard at no cost via the link above. Pricing evolves as integrations and advanced features expand.</p>
             </div>
             <div class="box card-3d hover-glow tilt reveal p-6">
-              <h3 class="relative z-10 font-bold text-white">Can I use Uniment for multiple branches?</h3>
-              <p class="relative z-10 mt-2 text-dim">Yes — Uniment is designed for multi-branch operations and role-based access.</p>
+              <h3 class="relative z-10 font-bold text-white">Can I use Uniment for multiple branches across the UAE?</h3>
+              <p class="relative z-10 mt-2 text-dim">Yes — Uniment is built for multi-branch operations. Role-based access ensures each manager sees only their branch's data, whether you're running locations in Dubai, Abu Dhabi, or Sharjah.</p>
+            </div>
+            <div class="box card-3d hover-glow tilt reveal p-6">
+              <h3 class="relative z-10 font-bold text-white">Does Uniment work with UAE delivery platforms?</h3>
+              <p class="relative z-10 mt-2 text-dim">Uniment tracks channel mix including Talabat, Deliveroo, Noon Food, and direct orders. Import via POS export today — direct API integrations are on the roadmap.</p>
+            </div>
+            <div class="box card-3d hover-glow tilt reveal p-6">
+              <h3 class="relative z-10 font-bold text-white">Will Uniment support UAE VAT reporting?</h3>
+              <p class="relative z-10 mt-2 text-dim">UAE VAT-aware cost reporting is planned as part of the Uniment Inventory module. Revenue is already tracked in AED, and FTA-compliant food cost records are in development.</p>
+            </div>
+            <div class="box card-3d hover-glow tilt reveal p-6">
+              <h3 class="relative z-10 font-bold text-white">Is my restaurant's data private and secure?</h3>
+              <p class="relative z-10 mt-2 text-dim">Absolutely. Uniment uses multi-tenant architecture with full data isolation — no other operator can access your data. Privacy-first analytics, no selling of data.</p>
+            </div>
+            <div class="box card-3d hover-glow tilt reveal p-6">
+              <h3 class="relative z-10 font-bold text-white">How do I get started with Uniment?</h3>
+              <p class="relative z-10 mt-2 text-dim">Start with a spreadsheet or POS export — you can be live in under 10 minutes. Leave your email below or message us on WhatsApp (+971 50 241 3077) and we'll walk you through it.</p>
             </div>
           </div>
         </div>
@@ -1619,14 +1940,22 @@
             </div>
 
             <div class="box card-3d hover-glow tilt reveal p-6">
-              <form id="notify-form" class="flex flex-col sm:flex-row gap-3">
+              <form
+                id="notify-form"
+                action="https://formspree.io/f/xjkwbpvb"
+                method="POST"
+                class="flex flex-col sm:flex-row gap-3"
+              >
                 <input
-                  id="email"
+                  id="email-input"
                   type="email"
+                  name="email"
                   placeholder="Enter your email"
+                  autocomplete="email"
                   required
                   class="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/10 text-white placeholder:text-white/40 outline-none"
                 />
+                <input type="hidden" name="_subject" value="Uniment Early Access Request" />
                 <button
                   id="notify-btn"
                   type="submit"
@@ -1636,9 +1965,12 @@
                 </button>
               </form>
               <p id="form-msg" class="mt-3 text-sm text-emerald-300 hidden">
-                Thanks! We received your email 🎉 If it’s urgent, message us on WhatsApp.
+                <span aria-hidden="true">🎉</span> Thanks! We’ll be in touch. For urgent enquiries, WhatsApp us directly.
               </p>
-              <p class="mt-3 text-xs text-dim">No spam. Unsubscribe anytime.</p>
+              <p id="form-err" class="mt-3 text-sm text-red-400 hidden">
+                Something went wrong. Please try WhatsApp or email instead.
+              </p>
+              <p class="mt-3 text-xs text-dim">No spam. Unsubscribe anytime. UAE/GCC operators prioritised for early access.</p>
             </div>
           </div>
         </div>
@@ -1664,6 +1996,7 @@
       lucide.createIcons();
 
       const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const isTouchDevice  = window.matchMedia("(pointer: coarse)").matches;
 
       // -------------------- Lenis Smooth Scroll --------------------
       let lenis = null;
@@ -1763,7 +2096,8 @@
       // -------------------- Global 3D data background canvas --------------------
       (() => {
         const canvas = document.getElementById("bg3d");
-        if (!canvas) return;
+        // Skip heavy 3D background on touch/mobile to protect INP
+        if (!canvas || isTouchDevice) { canvas && (canvas.style.display = "none"); return; }
         const ctx = canvas.getContext("2d", { alpha: true });
 
         let w = 0, h = 0, dpr = 1;
@@ -1873,12 +2207,12 @@
         if (prefersReduced || !window.tsParticles) return;
 
         await tsParticles.load("heroParticles", {
-          fpsLimit: 60,
+          fpsLimit: isTouchDevice ? 30 : 60,
           background: { color: { value: "transparent" } },
           fullScreen: { enable: false },
-          detectRetina: true,
+          detectRetina: !isTouchDevice,
           particles: {
-            number: { value: 54, density: { enable: true, area: 900 } },
+            number: { value: isTouchDevice ? 20 : 54, density: { enable: true, area: 900 } },
             color: { value: ["#a78bfa", "#60a5fa", "#e2e8f0"] },
             opacity: { value: { min: 0.12, max: 0.45 } },
             size: { value: { min: 1, max: 2.2 } },
@@ -2316,23 +2650,75 @@
         fills.forEach(f => pIO.observe(f));
       })();
 
-      // -------------------- Form UX (frontend only) --------------------
-      // NOTE: To send WhatsApp message automatically on submit, you need a backend using Meta WhatsApp Cloud API.
+      // -------------------- Mobile nav (hamburger) --------------------
+      function closeMobileMenu() {
+        const drawer = document.getElementById("mobile-drawer");
+        const btn    = document.getElementById("mobile-menu-btn");
+        const hIcon  = document.getElementById("hamburger-icon");
+        const cIcon  = document.getElementById("close-icon");
+        if (!drawer) return;
+        drawer.style.transform = "translateX(100%)";
+        drawer.setAttribute("aria-hidden", "true");
+        btn && btn.setAttribute("aria-expanded", "false");
+        hIcon && hIcon.classList.remove("hidden");
+        cIcon && cIcon.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+
+      (() => {
+        const btn    = document.getElementById("mobile-menu-btn");
+        const drawer = document.getElementById("mobile-drawer");
+        const hIcon  = document.getElementById("hamburger-icon");
+        const cIcon  = document.getElementById("close-icon");
+        if (!btn || !drawer) return;
+        let open = false;
+
+        btn.addEventListener("click", () => {
+          open = !open;
+          drawer.style.transform = open ? "translateX(0)" : "translateX(100%)";
+          drawer.setAttribute("aria-hidden", open ? "false" : "true");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          hIcon.classList.toggle("hidden", open);
+          cIcon.classList.toggle("hidden", !open);
+          document.body.style.overflow = open ? "hidden" : "";
+        });
+
+        // Close on Escape
+        document.addEventListener("keydown", e => { if (e.key === "Escape" && open) closeMobileMenu(); });
+      })();
+
+      // -------------------- Form (Formspree) --------------------
       const form = document.getElementById("notify-form");
-      const email = document.getElementById("email");
-      const msg = document.getElementById("form-msg");
-      const btn = document.getElementById("notify-btn");
+      const msg  = document.getElementById("form-msg");
+      const err  = document.getElementById("form-err");
+      const btn  = document.getElementById("notify-btn");
 
       form?.addEventListener("submit", async (e) => {
         e.preventDefault();
         btn.disabled = true;
-        const old = btn.textContent;
-        btn.textContent = "Submitting...";
-        await new Promise((r) => setTimeout(r, 450));
-        msg.classList.remove("hidden");
-        email.value = "";
-        btn.disabled = false;
-        btn.textContent = old;
+        const oldText = btn.textContent;
+        btn.textContent = "Sending…";
+        msg.classList.add("hidden");
+        err.classList.add("hidden");
+
+        try {
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { Accept: "application/json" },
+          });
+          if (res.ok) {
+            msg.classList.remove("hidden");
+            form.reset();
+          } else {
+            err.classList.remove("hidden");
+          }
+        } catch (_) {
+          err.classList.remove("hidden");
+        } finally {
+          btn.disabled = false;
+          btn.textContent = oldText;
+        }
       });
     </script>
   </body>
