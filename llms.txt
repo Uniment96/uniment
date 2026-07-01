@@ -1,0 +1,47 @@
+# Uniment
+
+Uniment is a restaurant intelligence platform for UAE and GCC restaurants helping operators unlock revenue, reduce waste, and win loyal customers with AI-powered data tools and real-time KPI dashboards.
+
+## Products
+
+- **RevenueRoll**: Restaurant KPI dashboard displaying 7-day sales trends, delivery vs dine-in channel mix, best-performing days, and food cost percentages in AED. Built for UAE restaurant operators managing single or multiple branches. Free to use via https://paulkpi-frontend-for-frontend.vercel.app/auth/login
+
+- **FoodLoop**: Food operations management tool that tracks food items, reduces kitchen waste, and keeps restaurant teams aligned in real time. Designed to improve operational efficiency and reduce food costs. Access at https://foodloop-dusky.vercel.app/login
+
+- **Uniment Inventory**: Vendor management with VAT-aware cost tracking for UAE restaurants. Coming soon.
+
+- **Uniment Chiller**: Temperature monitoring and compliance system for restaurant chillers and storage. Coming soon.
+
+## Core Features
+
+- Real-time KPI dashboards with 7-day revenue snapshots
+- Multi-location branch management with role-based access control
+- Delivery platform analytics (Talabat, Deliveroo, Noon Food integration ready)
+- Food cost tracking and waste reduction insights
+- POS system data import and integration
+- Multi-tenant architecture with full data isolation and privacy
+- AED currency and UAE VAT compliance
+
+## Market
+
+Uniment focuses on small-to-medium restaurant operators in:
+- United Arab Emirates (Dubai, Abu Dhabi, Sharjah)
+- Saudi Arabia
+- Qatar
+- Kuwait
+- Bahrain
+- Oman
+
+## Founder & Contact
+
+**Founder**: Mayur Rane
+
+**Email**: uniment933@gmail.com
+
+**WhatsApp**: +971 50 241 3077
+
+**Website**: https://uniment.ae
+
+## About Uniment
+
+Uniment helps UAE and GCC restaurant operators make data-driven decisions quickly. The platform converts operational data into simple, actionable insights—turning spreadsheets and POS exports into live dashboards in minutes. No complex setup. Transparent pricing as the product expands.
