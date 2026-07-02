@@ -32,6 +32,11 @@ Uniment focuses on small-to-medium restaurant operators in:
 - Bahrain
 - Oman
 
+## Blog & Guides
+
+- [Restaurant KPI Dashboard: The 7 Numbers to Review Every Week](https://uniment.ae/blog/restaurant-kpi-dashboard-weekly-numbers/): Which KPIs restaurants should review weekly (revenue trend, channel mix, food cost %, best/worst days, AOV per channel, promotion ROI, waste value) and how to build a dashboard without a data team.
+- Blog index: https://uniment.ae/blog/
+
 ## Founder & Contact
 
 **Founder**: Mayur Rane
