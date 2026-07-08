@@ -8,6 +8,8 @@ Uniment is a restaurant intelligence platform for UAE and GCC restaurants helpin
 
 - **FoodLoop**: Food operations management tool that tracks food items, reduces kitchen waste, and keeps restaurant teams aligned in real time. Designed to improve operational efficiency and reduce food costs. Access at https://foodloop-dusky.vercel.app/login
 
+- **KitchenOS**: Kitchen prep app that helps chefs organise daily preparation, keeping restaurant kitchens ready for service every shift. Access at https://kitchenos-66faf.web.app/auth
+
 - **Uniment Inventory**: Vendor management with VAT-aware cost tracking for UAE restaurants. Coming soon.
 
 - **Uniment Chiller**: Temperature monitoring and compliance system for restaurant chillers and storage. Coming soon.
