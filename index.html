@@ -2132,16 +2132,24 @@
         let gx = window.innerWidth * 0.5;
         let gy = window.innerHeight * 0.5;
         let tx = gx, ty = gy;
-
-        window.addEventListener("mousemove", (e) => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+        let glowRaf = null; // single in-flight rAF; null = loop idle
 
         const tick = () => {
+          glowRaf = null;
           gx += (tx - gx) * 0.12;
           gy += (ty - gy) * 0.12;
+          // Converged: snap to target and stop scheduling until the next mousemove.
+          if (Math.abs(tx - gx) < 0.1 && Math.abs(ty - gy) < 0.1) { gx = tx; gy = ty; }
+          else glowRaf = requestAnimationFrame(tick);
           cursorGlow.style.transform = `translate(${gx}px, ${gy}px) translate(-50%, -50%)`;
-          requestAnimationFrame(tick);
         };
-        requestAnimationFrame(tick);
+
+        window.addEventListener("mousemove", (e) => {
+          tx = e.clientX; ty = e.clientY;
+          if (glowRaf === null) glowRaf = requestAnimationFrame(tick);
+        }, { passive: true });
+
+        tick(); // paint the initial centered position once, then idle
       }
 
       // -------------------- Background parallax on scroll --------------------
@@ -2632,14 +2640,21 @@
           ring?.remove(); dot?.remove(); return;
         }
         let cx = -200, cy = -200, tx = -200, ty = -200;
-        window.addEventListener("mousemove", e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+        let ringRaf = null; // single in-flight rAF; null = loop idle
         const cTick = () => {
+          ringRaf = null;
           cx += (tx - cx) * 0.13; cy += (ty - cy) * 0.13;
+          // Converged: snap to target and stop scheduling until the next mousemove.
+          if (Math.abs(tx - cx) < 0.1 && Math.abs(ty - cy) < 0.1) { cx = tx; cy = ty; }
+          else ringRaf = requestAnimationFrame(cTick);
           ring.style.left = cx + "px"; ring.style.top = cy + "px";
           dot.style.left  = tx + "px"; dot.style.top  = ty + "px";
-          requestAnimationFrame(cTick);
         };
-        requestAnimationFrame(cTick);
+        window.addEventListener("mousemove", e => {
+          tx = e.clientX; ty = e.clientY;
+          if (ringRaf === null) ringRaf = requestAnimationFrame(cTick);
+        }, { passive: true });
+        cTick(); // paint the initial offscreen position once, then idle
         document.querySelectorAll("a, button, [role=button]").forEach(el => {
           el.addEventListener("mouseenter", () => ring.classList.add("hovered"));
           el.addEventListener("mouseleave", () => ring.classList.remove("hovered"));
