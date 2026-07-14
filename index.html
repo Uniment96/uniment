@@ -652,7 +652,7 @@
         background: #06080f;
         display: flex; flex-direction: column;
         align-items: center; justify-content: center; gap: 24px;
-        transition: opacity .7s ease, visibility .7s ease;
+        transition: opacity .3s ease, visibility .3s ease;
       }
       #loader.out { opacity: 0; visibility: hidden; pointer-events: none; }
       .loader-mark {
@@ -2595,9 +2595,16 @@
       (() => {
         const loader = document.getElementById("loader");
         if (!loader) return;
-        const hide = () => { loader.classList.add("out"); setTimeout(() => loader.remove(), 800); };
-        if (document.readyState === "complete") setTimeout(hide, 1450);
-        else window.addEventListener("load", () => setTimeout(hide, 1350));
+        let hidden = false;
+        const hide = () => {
+          if (hidden) return;
+          hidden = true;
+          loader.classList.add("out");
+          setTimeout(() => loader.remove(), 400);
+        };
+        if (document.readyState !== "loading") hide();
+        else document.addEventListener("DOMContentLoaded", hide);
+        setTimeout(hide, 1000); // absolute fallback in case DOMContentLoaded is missed
       })();
 
       // -------------------- Scroll progress bar --------------------
