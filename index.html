@@ -203,8 +203,7 @@
     <!-- Tailwind (built at commit time — see README.md "Regenerating tailwind.css") -->
     <link rel="stylesheet" href="/css/tailwind.css">
 
-    <!-- Icons & Analytics -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Analytics (icons are inlined SVG — lucide 1.24.0) -->
     <script defer data-domain="uniment.ae" src="https://plausible.io/js/script.js"></script>
 
     <!-- Lenis (Smooth Scroll) -->
@@ -1128,7 +1127,7 @@
 
               <div class="mt-8 flex flex-wrap gap-3" style="animation:ldIn .7s .8s var(--ease-out) both;">
                 <a href="#notify" class="magnetic btn-3d inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white text-slate-900 font-bold text-sm hover:opacity-95">
-                  Get early access <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                  Get early access <svg class="lucide lucide-arrow-right w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></svg>
                 </a>
                 <a href="https://paulkpi-frontend-for-frontend.vercel.app/auth/login" class="magnetic btn-glass btn-3d inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-white font-bold text-sm">
                   <span aria-hidden="true">🚀</span> Try RevenueRoll
@@ -1204,9 +1203,9 @@
                     </div>
                   </div>
                   <div class="mt-4 flex flex-wrap items-center gap-4 text-xs" style="color:rgba(148,163,184,.55);">
-                    <span class="inline-flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Secure</span>
-                    <span class="inline-flex items-center gap-1"><i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Actionable</span>
-                    <span class="inline-flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> Real-time</span>
+                    <span class="inline-flex items-center gap-1"><svg class="lucide lucide-shield-check w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg> Secure</span>
+                    <span class="inline-flex items-center gap-1"><svg class="lucide lucide-sparkles w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /></svg> Actionable</span>
+                    <span class="inline-flex items-center gap-1"><svg class="lucide lucide-clock w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg> Real-time</span>
                   </div>
                 </div>
               </div>
@@ -1218,19 +1217,19 @@
             <p class="relative z-10 text-xs font-bold uppercase tracking-widest mb-4" style="color:rgba(148,163,184,.45);">Designed for restaurants running on</p>
             <div class="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-3">
               <div class="flex items-center gap-2.5 rounded-xl px-4 py-2.5" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);">
-                <i data-lucide="monitor" class="w-4 h-4 text-indigo-300 flex-shrink-0"></i>
+                <svg class="lucide lucide-monitor w-4 h-4 text-indigo-300 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2" /> <line x1="8" x2="16" y1="21" y2="21" /> <line x1="12" x2="12" y1="17" y2="21" /></svg>
                 <span class="text-xs font-semibold text-white">POS Integrations</span>
               </div>
               <div class="flex items-center gap-2.5 rounded-xl px-4 py-2.5" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);">
-                <i data-lucide="package" class="w-4 h-4 text-violet-300 flex-shrink-0"></i>
+                <svg class="lucide lucide-package w-4 h-4 text-violet-300 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /></svg>
                 <span class="text-xs font-semibold text-white">Inventory &amp; Vendors</span>
               </div>
               <div class="flex items-center gap-2.5 rounded-xl px-4 py-2.5" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);">
-                <i data-lucide="bar-chart-3" class="w-4 h-4 text-blue-300 flex-shrink-0"></i>
+                <svg class="lucide lucide-bar-chart-3 w-4 h-4 text-blue-300 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="M18 17V9" /> <path d="M13 17V5" /> <path d="M8 17v-3" /></svg>
                 <span class="text-xs font-semibold text-white">KPI Dashboards</span>
               </div>
               <div class="flex items-center gap-2.5 rounded-xl px-4 py-2.5" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);">
-                <i data-lucide="users" class="w-4 h-4 text-emerald-300 flex-shrink-0"></i>
+                <svg class="lucide lucide-users w-4 h-4 text-emerald-300 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></svg>
                 <span class="text-xs font-semibold text-white">Loyalty Programs</span>
               </div>
             </div>
@@ -1300,7 +1299,7 @@
               <div class="relative z-10 flex flex-col h-full gap-4">
                 <div class="flex items-start justify-between gap-4">
                   <div>
-                    <div class="icon-badge"><i data-lucide="bar-chart-3" class="w-5 h-5 text-indigo-300"></i></div>
+                    <div class="icon-badge"><svg class="lucide lucide-bar-chart-3 w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="M18 17V9" /> <path d="M13 17V5" /> <path d="M8 17v-3" /></svg></div>
                     <h3 class="font-bold text-xl text-white">Revenue clarity</h3>
                     <p class="mt-2 text-dim text-sm max-w-xs">Understand trends across dine-in, takeaway, and delivery with clean KPI views.</p>
                   </div>
@@ -1329,7 +1328,7 @@
             <!-- 2: Channel Mix – slim -->
             <div class="b2 box card-3d card-accent hover-glow tilt reveal p-7">
               <div class="relative z-10 flex flex-col h-full">
-                <div class="icon-badge"><i data-lucide="pie-chart" class="w-5 h-5 text-indigo-300"></i></div>
+                <div class="icon-badge"><svg class="lucide lucide-pie-chart w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z" /> <path d="M21.21 15.89A10 10 0 1 1 8 2.83" /></svg></div>
                 <h3 class="font-bold text-xl text-white">Channel mix</h3>
                 <p class="mt-2 text-dim text-sm">Spot what’s growing, what’s declining, and where to push marketing spend.</p>
                 <div class="mt-auto flex items-center gap-4 pt-5">
@@ -1352,7 +1351,7 @@
             <!-- 3: Inventory – slim -->
             <div class="b3 box card-3d card-accent hover-glow tilt reveal p-7">
               <div class="relative z-10">
-                <div class="icon-badge"><i data-lucide="package" class="w-5 h-5 text-indigo-300"></i></div>
+                <div class="icon-badge"><svg class="lucide lucide-package w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /></svg></div>
                 <h3 class="font-bold text-xl text-white">Inventory mastery</h3>
                 <p class="mt-2 text-dim text-sm">Reduce waste with reorder insights and spoilage prevention.</p>
                 <div class="mt-5 space-y-3">
@@ -1375,7 +1374,7 @@
             <!-- 4: Smart Promos – wide -->
             <div class="b4 box card-3d card-accent hover-glow tilt reveal p-7">
               <div class="relative z-10">
-                <div class="icon-badge"><i data-lucide="megaphone" class="w-5 h-5 text-indigo-300"></i></div>
+                <div class="icon-badge"><svg class="lucide lucide-megaphone w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /> <path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /> <path d="M8 6v8" /></svg></div>
                 <h3 class="font-bold text-xl text-white">Smarter promotions</h3>
                 <p class="mt-2 text-dim text-sm max-w-md">Launch campaigns with the right timing using guest behavior and sales signals.</p>
                 <div class="mt-5 grid grid-cols-3 gap-3">
@@ -1398,7 +1397,7 @@
             <!-- 5: Secure – half -->
             <div class="b5 box card-3d card-accent hover-glow tilt reveal p-7">
               <div class="relative z-10">
-                <div class="icon-badge"><i data-lucide="shield-check" class="w-5 h-5 text-indigo-300"></i></div>
+                <div class="icon-badge"><svg class="lucide lucide-shield-check w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg></div>
                 <h3 class="font-bold text-xl text-white">Secure by design</h3>
                 <p class="mt-2 text-dim text-sm">Multi-tenant architecture with role-based access — each restaurant sees only their own data.</p>
               </div>
@@ -1407,7 +1406,7 @@
             <!-- 6: Fast Setup – half -->
             <div class="b6 box card-3d card-accent hover-glow tilt reveal p-7">
               <div class="relative z-10">
-                <div class="icon-badge"><i data-lucide="zap" class="w-5 h-5 text-indigo-300"></i></div>
+                <div class="icon-badge"><svg class="lucide lucide-zap w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg></div>
                 <h3 class="font-bold text-xl text-white">Fast setup</h3>
                 <p class="mt-2 text-dim text-sm">Start with a spreadsheet or POS export — integrate deeper as you grow.</p>
                 <div class="mt-5 flex items-center gap-2">
@@ -1498,7 +1497,7 @@
             <div class="space-y-4">
               <div class="box card-3d hover-glow reveal p-6">
                 <div class="relative z-10 flex items-start gap-4">
-                  <div class="icon-badge shrink-0"><i data-lucide="map-pin" class="w-5 h-5 text-indigo-300"></i></div>
+                  <div class="icon-badge shrink-0"><svg class="lucide lucide-map-pin w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg></div>
                   <div>
                     <h3 class="font-bold text-white">Dubai &amp; Abu Dhabi Ready</h3>
                     <p class="mt-1 text-dim text-sm">Optimised for the UAE's delivery-heavy market with Talabat, Deliveroo, and Noon Food channel mix tracking built in.</p>
@@ -1507,7 +1506,7 @@
               </div>
               <div class="box card-3d hover-glow reveal p-6">
                 <div class="relative z-10 flex items-start gap-4">
-                  <div class="icon-badge shrink-0"><i data-lucide="landmark" class="w-5 h-5 text-indigo-300"></i></div>
+                  <div class="icon-badge shrink-0"><svg class="lucide lucide-landmark w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18v-7" /> <path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /> <path d="M14 18v-7" /> <path d="M18 18v-7" /> <path d="M3 22h18" /> <path d="M6 18v-7" /></svg></div>
                   <div>
                     <h3 class="font-bold text-white">GCC Regulatory Awareness</h3>
                     <p class="mt-1 text-dim text-sm">Upcoming features include FTA-aligned food cost records and multi-currency support for KSA (SAR), Qatar (QAR), and Kuwait (KWD) branches.</p>
@@ -1516,7 +1515,7 @@
               </div>
               <div class="box card-3d hover-glow reveal p-6">
                 <div class="relative z-10 flex items-start gap-4">
-                  <div class="icon-badge shrink-0"><i data-lucide="clock" class="w-5 h-5 text-indigo-300"></i></div>
+                  <div class="icon-badge shrink-0"><svg class="lucide lucide-clock w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg></div>
                   <div>
                     <h3 class="font-bold text-white">Ramadan &amp; Peak Season Insights</h3>
                     <p class="mt-1 text-dim text-sm">Track how revenue patterns shift during Ramadan, Eid, and UAE National Day — automatically surface your best and worst performing periods.</p>
@@ -1543,7 +1542,7 @@
                   <div class="relative z-10 flex items-start justify-between gap-4">
                     <div>
                       <div class="flex items-center gap-2">
-                        <i data-lucide="activity" class="w-5 h-5 text-orange-300"></i>
+                        <svg class="lucide lucide-activity w-5 h-5 text-orange-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg>
                         <h3 class="font-bold text-white">RevenueRoll</h3>
                         <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-orange-500/15 text-orange-200 border border-orange-500/25">Available</span>
                       </div>
@@ -1566,7 +1565,7 @@
                   <div class="relative z-10 flex items-start justify-between gap-4">
                     <div>
                       <div class="flex items-center gap-2">
-                        <i data-lucide="utensils" class="w-5 h-5 text-emerald-300"></i>
+                        <svg class="lucide lucide-utensils w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /> <path d="M7 2v20" /> <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>
                         <h3 class="font-bold text-white">FoodLoop</h3>
                         <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-200 border border-emerald-500/25">Available</span>
                       </div>
@@ -1590,7 +1589,7 @@
                   <div class="relative z-10 flex items-start justify-between gap-4">
                     <div>
                       <div class="flex items-center gap-2">
-                        <i data-lucide="chef-hat" class="w-5 h-5 text-sky-300"></i>
+                        <svg class="lucide lucide-chef-hat w-5 h-5 text-sky-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z" /> <path d="M6 17h12" /></svg>
                         <h3 class="font-bold text-white">KitchenOS</h3>
                         <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-sky-500/15 text-sky-200 border border-sky-500/25">Available</span>
                       </div>
@@ -1612,7 +1611,7 @@
 
                 <div class="box card-3d hover-glow tilt reveal p-5">
                   <div class="relative z-10 flex items-center gap-2">
-                    <i data-lucide="boxes" class="w-5 h-5 text-indigo-300"></i>
+                    <svg class="lucide lucide-boxes w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z" /> <path d="m7 16.5-4.74-2.85" /> <path d="m7 16.5 5-3" /> <path d="M7 16.5v5.17" /> <path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z" /> <path d="m17 16.5-5-3" /> <path d="m17 16.5 4.74-2.85" /> <path d="M17 16.5v5.17" /> <path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z" /> <path d="M12 8 7.26 5.15" /> <path d="m12 8 4.74-2.85" /> <path d="M12 13.5V8" /></svg>
                     <h3 class="font-bold text-white">Uniment Inventory</h3>
                     <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-white/5 text-dim border border-white/10">Coming soon</span>
                   </div>
@@ -1623,7 +1622,7 @@
 
                 <div class="box card-3d hover-glow tilt reveal p-5">
                   <div class="relative z-10 flex items-center gap-2">
-                    <i data-lucide="thermometer" class="w-5 h-5 text-indigo-300"></i>
+                    <svg class="lucide lucide-thermometer w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" /></svg>
                     <h3 class="font-bold text-white">Uniment Chiller</h3>
                     <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-white/5 text-dim border border-white/10">Coming soon</span>
                   </div>
@@ -1638,10 +1637,10 @@
               <div class="relative z-10">
                 <h3 class="text-lg font-bold text-white">Why operators choose Uniment</h3>
                 <ul class="mt-4 space-y-3 text-dim">
-                  <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-emerald-300"></i> Decisions based on KPIs, not gut feeling</li>
-                  <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-emerald-300"></i> Reduce waste with better inventory signals</li>
-                  <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-emerald-300"></i> Improve team accountability with clear reporting</li>
-                  <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-emerald-300"></i> Built for multi-branch restaurants</li>
+                  <li class="flex gap-2"><svg class="lucide lucide-check w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg> Decisions based on KPIs, not gut feeling</li>
+                  <li class="flex gap-2"><svg class="lucide lucide-check w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg> Reduce waste with better inventory signals</li>
+                  <li class="flex gap-2"><svg class="lucide lucide-check w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg> Improve team accountability with clear reporting</li>
+                  <li class="flex gap-2"><svg class="lucide lucide-check w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg> Built for multi-branch restaurants</li>
                 </ul>
 
                 <div class="mt-6 box card-3d hover-glow tilt reveal p-5 bg-white/5">
@@ -1679,7 +1678,7 @@
             >
               <!-- Badge -->
               <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
-                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
+                <svg class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:11px;height:11px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg> Verified Use Case
               </div>
               <!-- Metric -->
               <div style="font-size:clamp(3rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#a78bfa;">8.2%</div>
@@ -1701,7 +1700,7 @@
               onmouseleave="this.style.borderColor='rgba(56,189,248,.22)';this.style.boxShadow='';this.style.transform=''"
             >
               <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
-                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
+                <svg class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:11px;height:11px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg> Verified Use Case
               </div>
               <div style="font-size:clamp(3rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#38bdf8;">0</div>
               <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(226,232,240,.42);margin-top:8px;margin-bottom:20px;">Hours on manual reporting</div>
@@ -1719,7 +1718,7 @@
               onmouseleave="this.style.borderColor='rgba(249,115,22,.22)';this.style.boxShadow='';this.style.transform=''"
             >
               <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
-                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
+                <svg class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:11px;height:11px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg> Verified Use Case
               </div>
               <div style="font-size:clamp(3rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#f97316;">30%</div>
               <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(226,232,240,.42);margin-top:8px;margin-bottom:20px;">Faster weekly KPI reviews</div>
@@ -1737,7 +1736,7 @@
               onmouseleave="this.style.borderColor='rgba(52,211,153,.22)';this.style.boxShadow='';this.style.transform=''"
             >
               <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
-                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
+                <svg class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:11px;height:11px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg> Verified Use Case
               </div>
               <div style="font-size:clamp(3rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#34d399;">28.4%</div>
               <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(226,232,240,.42);margin-top:8px;margin-bottom:20px;">Food cost — down from 34%</div>
@@ -1755,7 +1754,7 @@
               onmouseleave="this.style.borderColor='rgba(129,140,248,.22)';this.style.boxShadow='';this.style.transform=''"
             >
               <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
-                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
+                <svg class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:11px;height:11px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg> Verified Use Case
               </div>
               <div style="display:flex;align-items:flex-end;gap:36px;flex-wrap:wrap;">
                 <div>
@@ -1947,7 +1946,7 @@
                   class="box card-3d hover-glow tilt reveal p-4 flex items-center gap-3"
                 >
                   <span class="h-10 w-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center">
-                    <i data-lucide="mail" class="w-5 h-5 text-white"></i>
+                    <svg class="lucide lucide-mail w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /> <rect x="2" y="4" width="20" height="16" rx="2" /></svg>
                   </span>
                   <div>
                     <div class="text-sm font-bold text-white">Email</div>
@@ -1962,7 +1961,7 @@
                   class="box card-3d hover-glow tilt reveal p-4 flex items-center gap-3"
                 >
                   <span class="h-10 w-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center">
-                    <i data-lucide="message-circle" class="w-5 h-5 text-white"></i>
+                    <svg class="lucide lucide-message-circle w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
                   </span>
                   <div>
                     <div class="text-sm font-bold text-white">WhatsApp</div>
@@ -1975,7 +1974,7 @@
                   class="box card-3d hover-glow tilt reveal p-4 flex items-center gap-3"
                 >
                   <span class="h-10 w-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center">
-                    <i data-lucide="phone" class="w-5 h-5 text-white"></i>
+                    <svg class="lucide lucide-phone w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
                   </span>
                   <div>
                     <div class="text-sm font-bold text-white">Call</div>
@@ -2039,8 +2038,6 @@
     </div>
 
     <script>
-      lucide.createIcons();
-
       const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const isTouchDevice  = window.matchMedia("(pointer: coarse)").matches;
 
