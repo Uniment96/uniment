@@ -682,7 +682,7 @@
 
       /* Custom cursor */
       #c-ring {
-        position: fixed; z-index: 9990;
+        position: fixed; left: 0; top: 0; z-index: 9990;
         width: 36px; height: 36px;
         border: 1.5px solid rgba(255,255,255,.48);
         border-radius: 50%;
@@ -694,7 +694,7 @@
         mix-blend-mode: difference;
       }
       #c-dot {
-        position: fixed; z-index: 9991;
+        position: fixed; left: 0; top: 0; z-index: 9991;
         width: 4px; height: 4px;
         background: #fff; border-radius: 50%;
         pointer-events: none;
@@ -2647,8 +2647,10 @@
           // Converged: snap to target and stop scheduling until the next mousemove.
           if (Math.abs(tx - cx) < 0.1 && Math.abs(ty - cy) < 0.1) { cx = tx; cy = ty; }
           else ringRaf = requestAnimationFrame(cTick);
-          ring.style.left = cx + "px"; ring.style.top = cy + "px";
-          dot.style.left  = tx + "px"; dot.style.top  = ty + "px";
+          // Composited transform instead of left/top (no per-frame layout).
+          // The trailing translate(-50%,-50%) keeps the original centering.
+          ring.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
+          dot.style.transform  = `translate3d(${tx}px, ${ty}px, 0) translate(-50%, -50%)`;
         };
         window.addEventListener("mousemove", e => {
           tx = e.clientX; ty = e.clientY;
