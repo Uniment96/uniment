@@ -2396,7 +2396,10 @@
         }
 
         let tick = 0;
+        let flowRaf = null;   // single in-flight rAF; null = loop idle
+        let flowVisible = false;
         function frame() {
+          flowRaf = null;
           ctx.clearRect(0, 0, W, H);
           tick++;
 
@@ -2476,9 +2479,22 @@
           }
 
           canvas.style.cursor = hov ? "pointer" : "default";
-          requestAnimationFrame(frame);
+          if (flowVisible) flowRaf = requestAnimationFrame(frame);
         }
-        requestAnimationFrame(frame);
+        // Animate only while the canvas intersects the viewport (was: an
+        // unconditional loop from page load, even with the section offscreen).
+        const flowIO = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            flowVisible = entry.isIntersecting;
+            if (flowVisible) {
+              if (flowRaf === null) flowRaf = requestAnimationFrame(frame);
+            } else if (flowRaf !== null) {
+              cancelAnimationFrame(flowRaf);
+              flowRaf = null;
+            }
+          });
+        });
+        flowIO.observe(canvas);
       })();
 
       // -------------------- KPI Animated Line Chart --------------------
