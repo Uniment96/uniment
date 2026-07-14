@@ -206,11 +206,11 @@
     <!-- Analytics (icons are inlined SVG — lucide 1.24.0) -->
     <script defer data-domain="uniment.ae" src="https://plausible.io/js/script.js"></script>
 
-    <!-- Lenis (Smooth Scroll) -->
-    <script src="https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.min.js"></script>
+    <!-- Lenis (Smooth Scroll) — self-hosted, pinned -->
+    <script defer src="/js/vendor/lenis-1.3.25.min.js"></script>
 
-    <!-- tsParticles -->
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+    <!-- tsParticles (slim bundle: circles + links + repulse/push, all this page uses) — self-hosted, pinned -->
+    <script defer src="/js/vendor/tsparticles.slim-3.9.1.bundle.min.js"></script>
 
     <style>
       :root{
@@ -2038,6 +2038,29 @@
     </div>
 
     <script>
+      // -------------------- Loading screen --------------------
+      // Stays OUTSIDE the DOMContentLoaded wrapper below so the 1s fallback
+      // is absolute even if the event is somehow missed.
+      (() => {
+        const loader = document.getElementById("loader");
+        if (!loader) return;
+        let hidden = false;
+        const hide = () => {
+          if (hidden) return;
+          hidden = true;
+          loader.classList.add("out");
+          setTimeout(() => loader.remove(), 400);
+        };
+        if (document.readyState !== "loading") hide();
+        else document.addEventListener("DOMContentLoaded", hide);
+        setTimeout(hide, 1000); // absolute fallback in case DOMContentLoaded is missed
+      })();
+
+      // Everything below depends on the deferred vendor scripts (Lenis,
+      // tsParticles), which are guaranteed to have executed before
+      // DOMContentLoaded fires.
+      document.addEventListener("DOMContentLoaded", () => {
+
       const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const isTouchDevice  = window.matchMedia("(pointer: coarse)").matches;
 
@@ -2587,22 +2610,8 @@
       })();
 
       // ==================== AWARD-LEVEL ENHANCEMENTS ====================
-
-      // -------------------- Loading screen --------------------
-      (() => {
-        const loader = document.getElementById("loader");
-        if (!loader) return;
-        let hidden = false;
-        const hide = () => {
-          if (hidden) return;
-          hidden = true;
-          loader.classList.add("out");
-          setTimeout(() => loader.remove(), 400);
-        };
-        if (document.readyState !== "loading") hide();
-        else document.addEventListener("DOMContentLoaded", hide);
-        setTimeout(hide, 1000); // absolute fallback in case DOMContentLoaded is missed
-      })();
+      // (Loading screen logic lives at the top of this script, outside the
+      // DOMContentLoaded wrapper.)
 
       // -------------------- Scroll progress bar --------------------
       const pgBar = document.getElementById("scroll-progress");
@@ -2714,6 +2723,9 @@
         cIcon && cIcon.classList.add("hidden");
         document.body.style.overflow = "";
       }
+      // Called from inline onclick attributes in the mobile drawer — must stay
+      // global now that this script runs inside the DOMContentLoaded wrapper.
+      window.closeMobileMenu = closeMobileMenu;
 
       (() => {
         const btn    = document.getElementById("mobile-menu-btn");
@@ -2770,6 +2782,8 @@
           btn.textContent = oldText;
         }
       });
+
+      }); // end DOMContentLoaded wrapper
     </script>
   </body>
 </html>
