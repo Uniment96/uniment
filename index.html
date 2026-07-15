@@ -2336,6 +2336,10 @@
 
         await tsParticles.load("heroParticles", {
           fpsLimit: isTouchDevice ? 30 : 60,
+          // Explicit (matches the v3 default): the bundle's own
+          // IntersectionObserver pauses/plays the container when the hero
+          // canvas leaves/enters the viewport.
+          pauseOnOutsideViewport: true,
           background: { color: { value: "transparent" } },
           fullScreen: { enable: false },
           detectRetina: !isTouchDevice,
