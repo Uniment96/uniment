@@ -2514,7 +2514,9 @@
           ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         }
         resize();
-        window.addEventListener("resize", resize, { passive: true });
+        // Resizing resets canvas.width (clearing the bitmap), so repaint if
+        // on-screen; off-screen, the viewport re-entry redraw covers it.
+        window.addEventListener("resize", () => { resize(); if (kpiVisible) requestRedraw(); }, { passive: true });
 
         const WEEKS = ["W1","W2","W3","W4","W5","W6","W7","W8"];
         const BEFORE = [62,58,64,55,60,63,57,61];
@@ -2522,11 +2524,21 @@
 
         let progress = 0, started = false;
         let mX = -9999, mY = -9999;
+        let kpiRaf = null;     // intro-animation rAF; null = idle
+        let kpiRedraw = null;  // one-shot event-driven redraw rAF; null = idle
+        let kpiVisible = false;
 
-        canvas.addEventListener("mousemove",  e=>{const r=canvas.getBoundingClientRect();mX=e.clientX-r.left;mY=e.clientY-r.top;},{passive:true});
-        canvas.addEventListener("mouseleave", ()=>{mX=mY=-9999;});
-        canvas.addEventListener("touchmove",  e=>{const r=canvas.getBoundingClientRect(),t=e.touches[0];mX=t.clientX-r.left;mY=t.clientY-r.top;},{passive:true});
-        canvas.addEventListener("touchend",   ()=>{mX=mY=-9999;});
+        // Post-intro repaints are event-driven: one coalesced redraw per frame.
+        // No-op while the intro loop is repainting or a redraw is already pending.
+        const requestRedraw = () => {
+          if (kpiRaf !== null || kpiRedraw !== null) return;
+          kpiRedraw = requestAnimationFrame(() => { kpiRedraw = null; drawFrame(); });
+        };
+
+        canvas.addEventListener("mousemove",  e=>{const r=canvas.getBoundingClientRect();mX=e.clientX-r.left;mY=e.clientY-r.top;requestRedraw();},{passive:true});
+        canvas.addEventListener("mouseleave", ()=>{mX=mY=-9999;requestRedraw();});
+        canvas.addEventListener("touchmove",  e=>{const r=canvas.getBoundingClientRect(),t=e.touches[0];mX=t.clientX-r.left;mY=t.clientY-r.top;requestRedraw();},{passive:true});
+        canvas.addEventListener("touchend",   ()=>{mX=mY=-9999;requestRedraw();});
 
         const pL=56, pR=24, pT=32, pB=44;
 
@@ -2622,12 +2634,23 @@
         }
 
         function animate() {
-          if (progress < 1) { progress = Math.min(1, progress+0.02); drawFrame(); requestAnimationFrame(animate); }
-          else { drawFrame(); requestAnimationFrame(function loop(){ drawFrame(); requestAnimationFrame(loop); }); }
+          if (progress < 1) { progress = Math.min(1, progress+0.02); drawFrame(); kpiRaf = requestAnimationFrame(animate); }
+          // Intro done: paint the final frame and go idle. All later repaints
+          // are event-driven via requestRedraw() (was: a free-running loop).
+          else { kpiRaf = null; drawFrame(); }
         }
 
         const io = new IntersectionObserver((entries)=>{
-          entries.forEach(e=>{ if(e.isIntersecting && !started){ started=true; io.unobserve(canvas); animate(); } });
+          entries.forEach(e=>{
+            kpiVisible = e.isIntersecting;
+            if (e.isIntersecting) {
+              if (!started) { started = true; animate(); }                       // first sight: play intro
+              else if (progress < 1 && kpiRaf === null) animate();               // resume intro paused off-screen
+              else requestRedraw();                                              // post-intro re-entry: repaint once, never replay
+            } else if (kpiRaf !== null) {
+              cancelAnimationFrame(kpiRaf); kpiRaf = null;                       // off-screen: pause the intro loop
+            }
+          });
         }, {threshold:0.3});
         io.observe(canvas);
         drawFrame();
