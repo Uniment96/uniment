@@ -481,12 +481,28 @@
         mask-image: radial-gradient(900px 520px at 50% 32%, rgba(0,0,0,1), rgba(0,0,0,0));
       }
 
-      /* Scanlines */
+      /* Scanlines.
+         The texture lives on an oversized ::before animated with translateY
+         (compositor-only) instead of animating background-position on the
+         element (per-frame paint). opacity + mix-blend-mode stay on the
+         container, so the whole group still blends with the page backdrop
+         exactly as before. The -240px offset is a multiple of the 6px
+         pattern period, so the visible phase matches the old
+         background-position animation at every point of the cycle. */
       .scanlines{
         position: fixed; inset: 0;
         z-index: 1;
         pointer-events: none;
         opacity: .14;
+        mix-blend-mode: overlay;
+        overflow: clip;
+      }
+      .scanlines::before{
+        content: "";
+        position: absolute;
+        left: 0; right: 0;
+        top: -240px;
+        height: max(200%, calc(100% + 240px));
         background: repeating-linear-gradient(
           to bottom,
           rgba(255,255,255,.04) 0px,
@@ -494,12 +510,12 @@
           rgba(0,0,0,0) 3px,
           rgba(0,0,0,0) 6px
         );
-        mix-blend-mode: overlay;
+        will-change: transform;
         animation: scanMove 12s linear infinite;
       }
       @keyframes scanMove{
-        from { background-position: 0 0; }
-        to   { background-position: 0 240px; }
+        from { transform: translateY(0); }
+        to   { transform: translateY(240px); }
       }
 
       /* Scanner sweep */
@@ -610,7 +626,7 @@
       @media (prefers-reduced-motion: reduce){
         .reveal, .tilt, .card-3d, .btn-3d, .bg-image-3d-inner,
         .orb { transition: none !important; animation: none !important; }
-        .scanlines, .scanner { animation: none !important; }
+        .scanlines, .scanlines::before, .scanner { animation: none !important; }
         #cursorGlow { display: none !important; }
       }
 
