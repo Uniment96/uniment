@@ -2213,10 +2213,30 @@
           return { x: px * scale + w/2, y: py * scale + h/2, s: scale };
         }
 
+        // Spatial hash over linkDist-sized cells: a partner within linkDist
+        // can only sit in the 3x3 neighborhood of a point's cell, so the
+        // all-pairs O(N²) scan becomes O(N·neighbors) with the same pair set,
+        // gates, and math. The grid holds start-of-frame positions; points
+        // are updated in index order and partners restricted to j > i, so
+        // every pair is still evaluated exactly once against the same
+        // this-frame(a)/last-frame(b) coordinates the nested loop used.
+        const grid = new Map();
+        const cellOf = (x, y) => (Math.floor(x / linkDist) + 512) * 1024 + (Math.floor(y / linkDist) + 512);
+
+        let bgRaf = null;    // in-flight rAF; null = no frame scheduled
+        let bgLoop = false;  // loop enabled (stays false under reduced motion)
+
         function frame(){
           ctx.clearRect(0,0,w,h);
 
           const speed = baseSpeed + (lenis ? Math.min(1.2, Math.abs(lenis.velocity || 0) * 0.02) : 0);
+
+          grid.clear();
+          for (let i=0; i<pts.length; i++){
+            const key = cellOf(pts[i].x, pts[i].y);
+            const cell = grid.get(key);
+            if (cell) cell.push(i); else grid.set(key, [i]);
+          }
 
           for (let i=0; i<pts.length; i++){
             const a = pts[i];
@@ -2232,25 +2252,34 @@
 
             const pa = project(a);
 
-            for (let j=i+1; j<pts.length; j++){
-              const b = pts[j];
-              const dz = Math.abs(a.z - b.z);
-              if (dz > 280) continue;
+            const cx0 = Math.floor(a.x / linkDist);
+            const cy0 = Math.floor(a.y / linkDist);
+            for (let gx = cx0-1; gx <= cx0+1; gx++){
+              for (let gy = cy0-1; gy <= cy0+1; gy++){
+                const cell = grid.get((gx + 512) * 1024 + (gy + 512));
+                if (!cell) continue;
+                for (const j of cell){
+                  if (j <= i) continue;
+                  const b = pts[j];
+                  const dz = Math.abs(a.z - b.z);
+                  if (dz > 280) continue;
 
-              const dx = a.x - b.x;
-              const dy = a.y - b.y;
-              const dist = Math.sqrt(dx*dx + dy*dy);
-              if (dist > linkDist) continue;
+                  const dx = a.x - b.x;
+                  const dy = a.y - b.y;
+                  const dist = Math.sqrt(dx*dx + dy*dy);
+                  if (dist > linkDist) continue;
 
-              const pb = project(b);
-              const alpha = Math.max(0, 1 - dist/linkDist) * 0.16 * Math.min(pa.s, pb.s);
+                  const pb = project(b);
+                  const alpha = Math.max(0, 1 - dist/linkDist) * 0.16 * Math.min(pa.s, pb.s);
 
-              ctx.strokeStyle = `rgba(96,165,250,${alpha})`;
-              ctx.lineWidth = 1;
-              ctx.beginPath();
-              ctx.moveTo(pa.x, pa.y);
-              ctx.lineTo(pb.x, pb.y);
-              ctx.stroke();
+                  ctx.strokeStyle = `rgba(96,165,250,${alpha})`;
+                  ctx.lineWidth = 1;
+                  ctx.beginPath();
+                  ctx.moveTo(pa.x, pa.y);
+                  ctx.lineTo(pb.x, pb.y);
+                  ctx.stroke();
+                }
+              }
             }
           }
 
@@ -2270,10 +2299,19 @@
             ctx.fill();
           }
 
-          if (!prefersReduced) requestAnimationFrame(frame);
+          if (!prefersReduced) bgRaf = document.hidden ? null : requestAnimationFrame(frame);
         }
 
-        if (!prefersReduced) requestAnimationFrame(frame);
+        // Fully stop while the tab is hidden; resume when it becomes visible.
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) {
+            if (bgRaf !== null) { cancelAnimationFrame(bgRaf); bgRaf = null; }
+          } else if (bgLoop && bgRaf === null) {
+            bgRaf = requestAnimationFrame(frame);
+          }
+        });
+
+        if (!prefersReduced) { bgLoop = true; bgRaf = requestAnimationFrame(frame); }
       })();
 
       // -------------------- tsParticles (Hero only) --------------------
