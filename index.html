@@ -356,21 +356,22 @@
         will-change: transform;
       }
 
-      /* ---------- Reveal (scroll) ---------- */
-      .box{ will-change: transform, opacity, filter; }
+      /* ---------- Reveal (scroll) ----------
+         Tuned for native scroll: no blur (blurred content reads as "still
+         loading"), short fade, small offset. Reveals are pre-triggered
+         ~250px outside the viewport (see the IntersectionObserver), so at
+         normal scroll speed content is already in place when it appears. */
+      .box{ will-change: transform, opacity; }
       .reveal{
         opacity: 0;
-        transform: translateY(20px) scale(.984);
-        filter: blur(8px);
+        transform: translateY(12px);
         transition:
-          opacity  .72s var(--ease-out),
-          transform .72s var(--ease-out),
-          filter   .72s var(--ease-out);
+          opacity  .4s var(--ease-out),
+          transform .4s var(--ease-out);
       }
       .reveal.in{
         opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
+        transform: translateY(0);
       }
 
       /* ---------- Background layers ---------- */
@@ -2084,10 +2085,14 @@
       const boxes = Array.from(document.querySelectorAll(".box"));
       boxes.forEach((el, idx) => {
         if (!el.classList.contains("reveal")) el.classList.add("reveal");
-        el.style.transitionDelay = `${(idx % 10) * 45}ms`;
+        el.style.transitionDelay = `${(idx % 6) * 30}ms`;
       });
 
       if (!prefersReduced) {
+        // rootMargin pre-triggers reveals ~250px beyond BOTH viewport edges,
+        // so content is already in place when scrolled into view — in either
+        // direction. threshold 0 so tall sections don't wait for 16% of
+        // their own height to be visible before starting.
         const io = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -2095,7 +2100,7 @@
               io.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.16 });
+        }, { threshold: 0, rootMargin: "250px 0px 250px 0px" });
         boxes.forEach((el) => io.observe(el));
       } else {
         boxes.forEach((el) => el.classList.add("in"));
