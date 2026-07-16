@@ -195,19 +195,23 @@
     }
     </script>
 
-    <!-- Premium font (self-hosted mirror of Google Fonts — see README "Fonts") -->
-    <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/css/fonts.css">
+    <!-- Premium font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Tailwind (built at commit time — see README.md "Regenerating tailwind.css") -->
-    <link rel="stylesheet" href="/css/tailwind.css">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Analytics (icons are inlined SVG — lucide 1.24.0) -->
+    <!-- Icons & Analytics -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script defer data-domain="uniment.ae" src="https://plausible.io/js/script.js"></script>
 
+    <!-- Lenis (Smooth Scroll) -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.min.js"></script>
 
-    <!-- tsParticles (slim bundle: circles + links + repulse/push, all this page uses) — self-hosted, pinned -->
-    <script defer src="/js/vendor/tsparticles.slim-3.9.1.bundle.min.js"></script>
+    <!-- tsParticles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
 
     <style>
       :root{
@@ -231,10 +235,7 @@
         --ease-out: cubic-bezier(.16,1,.3,1);
       }
 
-      /* Anchor/nav clicks glide via CSS; reduced-motion users get instant jumps. */
-      @media (prefers-reduced-motion: no-preference) {
-        html { scroll-behavior: smooth; }
-      }
+      html { scroll-behavior: smooth; }
       body{
         background: #06080f;
         color: #E5E7EB;
@@ -481,28 +482,12 @@
         mask-image: radial-gradient(900px 520px at 50% 32%, rgba(0,0,0,1), rgba(0,0,0,0));
       }
 
-      /* Scanlines.
-         The texture lives on an oversized ::before animated with translateY
-         (compositor-only) instead of animating background-position on the
-         element (per-frame paint). opacity + mix-blend-mode stay on the
-         container, so the whole group still blends with the page backdrop
-         exactly as before. The -240px offset is a multiple of the 6px
-         pattern period, so the visible phase matches the old
-         background-position animation at every point of the cycle. */
+      /* Scanlines */
       .scanlines{
         position: fixed; inset: 0;
         z-index: 1;
         pointer-events: none;
         opacity: .14;
-        mix-blend-mode: overlay;
-        overflow: clip;
-      }
-      .scanlines::before{
-        content: "";
-        position: absolute;
-        left: 0; right: 0;
-        top: -240px;
-        height: max(200%, calc(100% + 240px));
         background: repeating-linear-gradient(
           to bottom,
           rgba(255,255,255,.04) 0px,
@@ -510,12 +495,12 @@
           rgba(0,0,0,0) 3px,
           rgba(0,0,0,0) 6px
         );
-        will-change: transform;
+        mix-blend-mode: overlay;
         animation: scanMove 12s linear infinite;
       }
       @keyframes scanMove{
-        from { transform: translateY(0); }
-        to   { transform: translateY(240px); }
+        from { background-position: 0 0; }
+        to   { background-position: 0 240px; }
       }
 
       /* Scanner sweep */
@@ -626,7 +611,7 @@
       @media (prefers-reduced-motion: reduce){
         .reveal, .tilt, .card-3d, .btn-3d, .bg-image-3d-inner,
         .orb { transition: none !important; animation: none !important; }
-        .scanlines, .scanlines::before, .scanner { animation: none !important; }
+        .scanlines, .scanner { animation: none !important; }
         #cursorGlow { display: none !important; }
       }
 
@@ -667,7 +652,7 @@
         background: #06080f;
         display: flex; flex-direction: column;
         align-items: center; justify-content: center; gap: 24px;
-        transition: opacity .3s ease, visibility .3s ease;
+        transition: opacity .7s ease, visibility .7s ease;
       }
       #loader.out { opacity: 0; visibility: hidden; pointer-events: none; }
       .loader-mark {
@@ -698,7 +683,7 @@
 
       /* Custom cursor */
       #c-ring {
-        position: fixed; left: 0; top: 0; z-index: 9990;
+        position: fixed; z-index: 9990;
         width: 36px; height: 36px;
         border: 1.5px solid rgba(255,255,255,.48);
         border-radius: 50%;
@@ -710,7 +695,7 @@
         mix-blend-mode: difference;
       }
       #c-dot {
-        position: fixed; left: 0; top: 0; z-index: 9991;
+        position: fixed; z-index: 9991;
         width: 4px; height: 4px;
         background: #fff; border-radius: 50%;
         pointer-events: none;
@@ -1143,7 +1128,7 @@
 
               <div class="mt-8 flex flex-wrap gap-3" style="animation:ldIn .7s .8s var(--ease-out) both;">
                 <a href="#notify" class="magnetic btn-3d inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white text-slate-900 font-bold text-sm hover:opacity-95">
-                  Get early access <svg class="lucide lucide-arrow-right w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></svg>
+                  Get early access <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
                 <a href="https://paulkpi-frontend-for-frontend.vercel.app/auth/login" class="magnetic btn-glass btn-3d inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-white font-bold text-sm">
                   <span aria-hidden="true">🚀</span> Try RevenueRoll
@@ -1219,9 +1204,9 @@
                     </div>
                   </div>
                   <div class="mt-4 flex flex-wrap items-center gap-4 text-xs" style="color:rgba(148,163,184,.55);">
-                    <span class="inline-flex items-center gap-1"><svg class="lucide lucide-shield-check w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg> Secure</span>
-                    <span class="inline-flex items-center gap-1"><svg class="lucide lucide-sparkles w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /></svg> Actionable</span>
-                    <span class="inline-flex items-center gap-1"><svg class="lucide lucide-clock w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg> Real-time</span>
+                    <span class="inline-flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Secure</span>
+                    <span class="inline-flex items-center gap-1"><i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Actionable</span>
+                    <span class="inline-flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> Real-time</span>
                   </div>
                 </div>
               </div>
@@ -1233,19 +1218,19 @@
             <p class="relative z-10 text-xs font-bold uppercase tracking-widest mb-4" style="color:rgba(148,163,184,.45);">Designed for restaurants running on</p>
             <div class="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-3">
               <div class="flex items-center gap-2.5 rounded-xl px-4 py-2.5" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);">
-                <svg class="lucide lucide-monitor w-4 h-4 text-indigo-300 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2" /> <line x1="8" x2="16" y1="21" y2="21" /> <line x1="12" x2="12" y1="17" y2="21" /></svg>
+                <i data-lucide="monitor" class="w-4 h-4 text-indigo-300 flex-shrink-0"></i>
                 <span class="text-xs font-semibold text-white">POS Integrations</span>
               </div>
               <div class="flex items-center gap-2.5 rounded-xl px-4 py-2.5" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);">
-                <svg class="lucide lucide-package w-4 h-4 text-violet-300 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /></svg>
+                <i data-lucide="package" class="w-4 h-4 text-violet-300 flex-shrink-0"></i>
                 <span class="text-xs font-semibold text-white">Inventory &amp; Vendors</span>
               </div>
               <div class="flex items-center gap-2.5 rounded-xl px-4 py-2.5" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);">
-                <svg class="lucide lucide-bar-chart-3 w-4 h-4 text-blue-300 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="M18 17V9" /> <path d="M13 17V5" /> <path d="M8 17v-3" /></svg>
+                <i data-lucide="bar-chart-3" class="w-4 h-4 text-blue-300 flex-shrink-0"></i>
                 <span class="text-xs font-semibold text-white">KPI Dashboards</span>
               </div>
               <div class="flex items-center gap-2.5 rounded-xl px-4 py-2.5" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);">
-                <svg class="lucide lucide-users w-4 h-4 text-emerald-300 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></svg>
+                <i data-lucide="users" class="w-4 h-4 text-emerald-300 flex-shrink-0"></i>
                 <span class="text-xs font-semibold text-white">Loyalty Programs</span>
               </div>
             </div>
@@ -1315,7 +1300,7 @@
               <div class="relative z-10 flex flex-col h-full gap-4">
                 <div class="flex items-start justify-between gap-4">
                   <div>
-                    <div class="icon-badge"><svg class="lucide lucide-bar-chart-3 w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="M18 17V9" /> <path d="M13 17V5" /> <path d="M8 17v-3" /></svg></div>
+                    <div class="icon-badge"><i data-lucide="bar-chart-3" class="w-5 h-5 text-indigo-300"></i></div>
                     <h3 class="font-bold text-xl text-white">Revenue clarity</h3>
                     <p class="mt-2 text-dim text-sm max-w-xs">Understand trends across dine-in, takeaway, and delivery with clean KPI views.</p>
                   </div>
@@ -1344,7 +1329,7 @@
             <!-- 2: Channel Mix – slim -->
             <div class="b2 box card-3d card-accent hover-glow tilt reveal p-7">
               <div class="relative z-10 flex flex-col h-full">
-                <div class="icon-badge"><svg class="lucide lucide-pie-chart w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z" /> <path d="M21.21 15.89A10 10 0 1 1 8 2.83" /></svg></div>
+                <div class="icon-badge"><i data-lucide="pie-chart" class="w-5 h-5 text-indigo-300"></i></div>
                 <h3 class="font-bold text-xl text-white">Channel mix</h3>
                 <p class="mt-2 text-dim text-sm">Spot what’s growing, what’s declining, and where to push marketing spend.</p>
                 <div class="mt-auto flex items-center gap-4 pt-5">
@@ -1367,7 +1352,7 @@
             <!-- 3: Inventory – slim -->
             <div class="b3 box card-3d card-accent hover-glow tilt reveal p-7">
               <div class="relative z-10">
-                <div class="icon-badge"><svg class="lucide lucide-package w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /></svg></div>
+                <div class="icon-badge"><i data-lucide="package" class="w-5 h-5 text-indigo-300"></i></div>
                 <h3 class="font-bold text-xl text-white">Inventory mastery</h3>
                 <p class="mt-2 text-dim text-sm">Reduce waste with reorder insights and spoilage prevention.</p>
                 <div class="mt-5 space-y-3">
@@ -1390,7 +1375,7 @@
             <!-- 4: Smart Promos – wide -->
             <div class="b4 box card-3d card-accent hover-glow tilt reveal p-7">
               <div class="relative z-10">
-                <div class="icon-badge"><svg class="lucide lucide-megaphone w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /> <path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /> <path d="M8 6v8" /></svg></div>
+                <div class="icon-badge"><i data-lucide="megaphone" class="w-5 h-5 text-indigo-300"></i></div>
                 <h3 class="font-bold text-xl text-white">Smarter promotions</h3>
                 <p class="mt-2 text-dim text-sm max-w-md">Launch campaigns with the right timing using guest behavior and sales signals.</p>
                 <div class="mt-5 grid grid-cols-3 gap-3">
@@ -1413,7 +1398,7 @@
             <!-- 5: Secure – half -->
             <div class="b5 box card-3d card-accent hover-glow tilt reveal p-7">
               <div class="relative z-10">
-                <div class="icon-badge"><svg class="lucide lucide-shield-check w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg></div>
+                <div class="icon-badge"><i data-lucide="shield-check" class="w-5 h-5 text-indigo-300"></i></div>
                 <h3 class="font-bold text-xl text-white">Secure by design</h3>
                 <p class="mt-2 text-dim text-sm">Multi-tenant architecture with role-based access — each restaurant sees only their own data.</p>
               </div>
@@ -1422,7 +1407,7 @@
             <!-- 6: Fast Setup – half -->
             <div class="b6 box card-3d card-accent hover-glow tilt reveal p-7">
               <div class="relative z-10">
-                <div class="icon-badge"><svg class="lucide lucide-zap w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg></div>
+                <div class="icon-badge"><i data-lucide="zap" class="w-5 h-5 text-indigo-300"></i></div>
                 <h3 class="font-bold text-xl text-white">Fast setup</h3>
                 <p class="mt-2 text-dim text-sm">Start with a spreadsheet or POS export — integrate deeper as you grow.</p>
                 <div class="mt-5 flex items-center gap-2">
@@ -1513,7 +1498,7 @@
             <div class="space-y-4">
               <div class="box card-3d hover-glow reveal p-6">
                 <div class="relative z-10 flex items-start gap-4">
-                  <div class="icon-badge shrink-0"><svg class="lucide lucide-map-pin w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg></div>
+                  <div class="icon-badge shrink-0"><i data-lucide="map-pin" class="w-5 h-5 text-indigo-300"></i></div>
                   <div>
                     <h3 class="font-bold text-white">Dubai &amp; Abu Dhabi Ready</h3>
                     <p class="mt-1 text-dim text-sm">Optimised for the UAE's delivery-heavy market with Talabat, Deliveroo, and Noon Food channel mix tracking built in.</p>
@@ -1522,7 +1507,7 @@
               </div>
               <div class="box card-3d hover-glow reveal p-6">
                 <div class="relative z-10 flex items-start gap-4">
-                  <div class="icon-badge shrink-0"><svg class="lucide lucide-landmark w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18v-7" /> <path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /> <path d="M14 18v-7" /> <path d="M18 18v-7" /> <path d="M3 22h18" /> <path d="M6 18v-7" /></svg></div>
+                  <div class="icon-badge shrink-0"><i data-lucide="landmark" class="w-5 h-5 text-indigo-300"></i></div>
                   <div>
                     <h3 class="font-bold text-white">GCC Regulatory Awareness</h3>
                     <p class="mt-1 text-dim text-sm">Upcoming features include FTA-aligned food cost records and multi-currency support for KSA (SAR), Qatar (QAR), and Kuwait (KWD) branches.</p>
@@ -1531,7 +1516,7 @@
               </div>
               <div class="box card-3d hover-glow reveal p-6">
                 <div class="relative z-10 flex items-start gap-4">
-                  <div class="icon-badge shrink-0"><svg class="lucide lucide-clock w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg></div>
+                  <div class="icon-badge shrink-0"><i data-lucide="clock" class="w-5 h-5 text-indigo-300"></i></div>
                   <div>
                     <h3 class="font-bold text-white">Ramadan &amp; Peak Season Insights</h3>
                     <p class="mt-1 text-dim text-sm">Track how revenue patterns shift during Ramadan, Eid, and UAE National Day — automatically surface your best and worst performing periods.</p>
@@ -1558,7 +1543,7 @@
                   <div class="relative z-10 flex items-start justify-between gap-4">
                     <div>
                       <div class="flex items-center gap-2">
-                        <svg class="lucide lucide-activity w-5 h-5 text-orange-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg>
+                        <i data-lucide="activity" class="w-5 h-5 text-orange-300"></i>
                         <h3 class="font-bold text-white">RevenueRoll</h3>
                         <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-orange-500/15 text-orange-200 border border-orange-500/25">Available</span>
                       </div>
@@ -1581,7 +1566,7 @@
                   <div class="relative z-10 flex items-start justify-between gap-4">
                     <div>
                       <div class="flex items-center gap-2">
-                        <svg class="lucide lucide-utensils w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /> <path d="M7 2v20" /> <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>
+                        <i data-lucide="utensils" class="w-5 h-5 text-emerald-300"></i>
                         <h3 class="font-bold text-white">FoodLoop</h3>
                         <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-200 border border-emerald-500/25">Available</span>
                       </div>
@@ -1605,7 +1590,7 @@
                   <div class="relative z-10 flex items-start justify-between gap-4">
                     <div>
                       <div class="flex items-center gap-2">
-                        <svg class="lucide lucide-chef-hat w-5 h-5 text-sky-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z" /> <path d="M6 17h12" /></svg>
+                        <i data-lucide="chef-hat" class="w-5 h-5 text-sky-300"></i>
                         <h3 class="font-bold text-white">KitchenOS</h3>
                         <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-sky-500/15 text-sky-200 border border-sky-500/25">Available</span>
                       </div>
@@ -1627,7 +1612,7 @@
 
                 <div class="box card-3d hover-glow tilt reveal p-5">
                   <div class="relative z-10 flex items-center gap-2">
-                    <svg class="lucide lucide-boxes w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z" /> <path d="m7 16.5-4.74-2.85" /> <path d="m7 16.5 5-3" /> <path d="M7 16.5v5.17" /> <path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z" /> <path d="m17 16.5-5-3" /> <path d="m17 16.5 4.74-2.85" /> <path d="M17 16.5v5.17" /> <path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z" /> <path d="M12 8 7.26 5.15" /> <path d="m12 8 4.74-2.85" /> <path d="M12 13.5V8" /></svg>
+                    <i data-lucide="boxes" class="w-5 h-5 text-indigo-300"></i>
                     <h3 class="font-bold text-white">Uniment Inventory</h3>
                     <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-white/5 text-dim border border-white/10">Coming soon</span>
                   </div>
@@ -1638,7 +1623,7 @@
 
                 <div class="box card-3d hover-glow tilt reveal p-5">
                   <div class="relative z-10 flex items-center gap-2">
-                    <svg class="lucide lucide-thermometer w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" /></svg>
+                    <i data-lucide="thermometer" class="w-5 h-5 text-indigo-300"></i>
                     <h3 class="font-bold text-white">Uniment Chiller</h3>
                     <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-white/5 text-dim border border-white/10">Coming soon</span>
                   </div>
@@ -1653,10 +1638,10 @@
               <div class="relative z-10">
                 <h3 class="text-lg font-bold text-white">Why operators choose Uniment</h3>
                 <ul class="mt-4 space-y-3 text-dim">
-                  <li class="flex gap-2"><svg class="lucide lucide-check w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg> Decisions based on KPIs, not gut feeling</li>
-                  <li class="flex gap-2"><svg class="lucide lucide-check w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg> Reduce waste with better inventory signals</li>
-                  <li class="flex gap-2"><svg class="lucide lucide-check w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg> Improve team accountability with clear reporting</li>
-                  <li class="flex gap-2"><svg class="lucide lucide-check w-5 h-5 text-emerald-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg> Built for multi-branch restaurants</li>
+                  <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-emerald-300"></i> Decisions based on KPIs, not gut feeling</li>
+                  <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-emerald-300"></i> Reduce waste with better inventory signals</li>
+                  <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-emerald-300"></i> Improve team accountability with clear reporting</li>
+                  <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-emerald-300"></i> Built for multi-branch restaurants</li>
                 </ul>
 
                 <div class="mt-6 box card-3d hover-glow tilt reveal p-5 bg-white/5">
@@ -1694,7 +1679,7 @@
             >
               <!-- Badge -->
               <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
-                <svg class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:11px;height:11px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg> Verified Use Case
+                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
               </div>
               <!-- Metric -->
               <div style="font-size:clamp(3rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#a78bfa;">8.2%</div>
@@ -1716,7 +1701,7 @@
               onmouseleave="this.style.borderColor='rgba(56,189,248,.22)';this.style.boxShadow='';this.style.transform=''"
             >
               <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
-                <svg class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:11px;height:11px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg> Verified Use Case
+                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
               </div>
               <div style="font-size:clamp(3rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#38bdf8;">0</div>
               <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(226,232,240,.42);margin-top:8px;margin-bottom:20px;">Hours on manual reporting</div>
@@ -1734,7 +1719,7 @@
               onmouseleave="this.style.borderColor='rgba(249,115,22,.22)';this.style.boxShadow='';this.style.transform=''"
             >
               <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
-                <svg class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:11px;height:11px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg> Verified Use Case
+                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
               </div>
               <div style="font-size:clamp(3rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#f97316;">30%</div>
               <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(226,232,240,.42);margin-top:8px;margin-bottom:20px;">Faster weekly KPI reviews</div>
@@ -1752,7 +1737,7 @@
               onmouseleave="this.style.borderColor='rgba(52,211,153,.22)';this.style.boxShadow='';this.style.transform=''"
             >
               <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
-                <svg class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:11px;height:11px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg> Verified Use Case
+                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
               </div>
               <div style="font-size:clamp(3rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#34d399;">28.4%</div>
               <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(226,232,240,.42);margin-top:8px;margin-bottom:20px;">Food cost — down from 34%</div>
@@ -1770,7 +1755,7 @@
               onmouseleave="this.style.borderColor='rgba(129,140,248,.22)';this.style.boxShadow='';this.style.transform=''"
             >
               <div style="display:inline-flex;align-items:center;gap:6px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(148,163,184,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9999px;padding:4px 12px;width:fit-content;margin-bottom:20px;">
-                <svg class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:11px;height:11px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg> Verified Use Case
+                <i data-lucide="shield-check" style="width:11px;height:11px;"></i> Verified Use Case
               </div>
               <div style="display:flex;align-items:flex-end;gap:36px;flex-wrap:wrap;">
                 <div>
@@ -1962,7 +1947,7 @@
                   class="box card-3d hover-glow tilt reveal p-4 flex items-center gap-3"
                 >
                   <span class="h-10 w-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center">
-                    <svg class="lucide lucide-mail w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /> <rect x="2" y="4" width="20" height="16" rx="2" /></svg>
+                    <i data-lucide="mail" class="w-5 h-5 text-white"></i>
                   </span>
                   <div>
                     <div class="text-sm font-bold text-white">Email</div>
@@ -1977,7 +1962,7 @@
                   class="box card-3d hover-glow tilt reveal p-4 flex items-center gap-3"
                 >
                   <span class="h-10 w-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center">
-                    <svg class="lucide lucide-message-circle w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+                    <i data-lucide="message-circle" class="w-5 h-5 text-white"></i>
                   </span>
                   <div>
                     <div class="text-sm font-bold text-white">WhatsApp</div>
@@ -1990,7 +1975,7 @@
                   class="box card-3d hover-glow tilt reveal p-4 flex items-center gap-3"
                 >
                   <span class="h-10 w-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center">
-                    <svg class="lucide lucide-phone w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
+                    <i data-lucide="phone" class="w-5 h-5 text-white"></i>
                   </span>
                   <div>
                     <div class="text-sm font-bold text-white">Call</div>
@@ -2054,31 +2039,27 @@
     </div>
 
     <script>
-      // -------------------- Loading screen --------------------
-      // Stays OUTSIDE the DOMContentLoaded wrapper below so the 1s fallback
-      // is absolute even if the event is somehow missed.
-      (() => {
-        const loader = document.getElementById("loader");
-        if (!loader) return;
-        let hidden = false;
-        const hide = () => {
-          if (hidden) return;
-          hidden = true;
-          loader.classList.add("out");
-          setTimeout(() => loader.remove(), 400);
-        };
-        if (document.readyState !== "loading") hide();
-        else document.addEventListener("DOMContentLoaded", hide);
-        setTimeout(hide, 1000); // absolute fallback in case DOMContentLoaded is missed
-      })();
-
-      // Everything below depends on the deferred vendor script (tsParticles),
-      // which is guaranteed to have executed before DOMContentLoaded fires.
-      // Scrolling is fully native — no smooth-scroll library (see README).
-      document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
 
       const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const isTouchDevice  = window.matchMedia("(pointer: coarse)").matches;
+
+      // -------------------- Lenis Smooth Scroll --------------------
+      let lenis = null;
+      if (!prefersReduced && window.Lenis) {
+        lenis = new Lenis({
+          duration: 1.08,
+          easing: (t) => 1 - Math.pow(1 - t, 3),
+          smoothWheel: true,
+          smoothTouch: false,
+        });
+
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+      }
 
       // -------------------- Scroll reveal (ALL boxes) --------------------
       const boxes = Array.from(document.querySelectorAll(".box"));
@@ -2131,29 +2112,21 @@
         let gx = window.innerWidth * 0.5;
         let gy = window.innerHeight * 0.5;
         let tx = gx, ty = gy;
-        let glowRaf = null; // single in-flight rAF; null = loop idle
+
+        window.addEventListener("mousemove", (e) => { tx = e.clientX; ty = e.clientY; }, { passive: true });
 
         const tick = () => {
-          glowRaf = null;
           gx += (tx - gx) * 0.12;
           gy += (ty - gy) * 0.12;
-          // Converged: snap to target and stop scheduling until the next mousemove.
-          if (Math.abs(tx - gx) < 0.1 && Math.abs(ty - gy) < 0.1) { gx = tx; gy = ty; }
-          else glowRaf = requestAnimationFrame(tick);
           cursorGlow.style.transform = `translate(${gx}px, ${gy}px) translate(-50%, -50%)`;
+          requestAnimationFrame(tick);
         };
-
-        window.addEventListener("mousemove", (e) => {
-          tx = e.clientX; ty = e.clientY;
-          if (glowRaf === null) glowRaf = requestAnimationFrame(tick);
-        }, { passive: true });
-
-        tick(); // paint the initial centered position once, then idle
+        requestAnimationFrame(tick);
       }
 
       // -------------------- Background parallax on scroll --------------------
       const bgInner = document.getElementById("bgImage3dInner");
-      const getScroll = () => window.scrollY;
+      const getScroll = () => (lenis ? lenis.scroll : window.scrollY);
 
       const applyBg = () => {
         if (!bgInner || prefersReduced) return;
@@ -2162,6 +2135,7 @@
         bgInner.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(${py}px) scale(1.08)`;
       };
 
+      if (lenis) lenis.on("scroll", applyBg);
       window.addEventListener("scroll", applyBg, { passive: true });
       applyBg();
 
@@ -2211,33 +2185,10 @@
           return { x: px * scale + w/2, y: py * scale + h/2, s: scale };
         }
 
-        // Spatial hash over linkDist-sized cells: a partner within linkDist
-        // can only sit in the 3x3 neighborhood of a point's cell, so the
-        // all-pairs O(N²) scan becomes O(N·neighbors) with the same pair set,
-        // gates, and math. The grid holds start-of-frame positions; points
-        // are updated in index order and partners restricted to j > i, so
-        // every pair is still evaluated exactly once against the same
-        // this-frame(a)/last-frame(b) coordinates the nested loop used.
-        const grid = new Map();
-        const cellOf = (x, y) => (Math.floor(x / linkDist) + 512) * 1024 + (Math.floor(y / linkDist) + 512);
-
-        let bgRaf = null;    // in-flight rAF; null = no frame scheduled
-        let bgLoop = false;  // loop enabled (stays false under reduced motion)
-        let lastScrollY = window.scrollY; // per-frame scroll delta drives the z-speed kick
-
         function frame(){
           ctx.clearRect(0,0,w,h);
 
-          const scrollNow = window.scrollY;
-          const speed = baseSpeed + Math.min(1.2, Math.abs(scrollNow - lastScrollY) * 0.02);
-          lastScrollY = scrollNow;
-
-          grid.clear();
-          for (let i=0; i<pts.length; i++){
-            const key = cellOf(pts[i].x, pts[i].y);
-            const cell = grid.get(key);
-            if (cell) cell.push(i); else grid.set(key, [i]);
-          }
+          const speed = baseSpeed + (lenis ? Math.min(1.2, Math.abs(lenis.velocity || 0) * 0.02) : 0);
 
           for (let i=0; i<pts.length; i++){
             const a = pts[i];
@@ -2253,34 +2204,25 @@
 
             const pa = project(a);
 
-            const cx0 = Math.floor(a.x / linkDist);
-            const cy0 = Math.floor(a.y / linkDist);
-            for (let gx = cx0-1; gx <= cx0+1; gx++){
-              for (let gy = cy0-1; gy <= cy0+1; gy++){
-                const cell = grid.get((gx + 512) * 1024 + (gy + 512));
-                if (!cell) continue;
-                for (const j of cell){
-                  if (j <= i) continue;
-                  const b = pts[j];
-                  const dz = Math.abs(a.z - b.z);
-                  if (dz > 280) continue;
+            for (let j=i+1; j<pts.length; j++){
+              const b = pts[j];
+              const dz = Math.abs(a.z - b.z);
+              if (dz > 280) continue;
 
-                  const dx = a.x - b.x;
-                  const dy = a.y - b.y;
-                  const dist = Math.sqrt(dx*dx + dy*dy);
-                  if (dist > linkDist) continue;
+              const dx = a.x - b.x;
+              const dy = a.y - b.y;
+              const dist = Math.sqrt(dx*dx + dy*dy);
+              if (dist > linkDist) continue;
 
-                  const pb = project(b);
-                  const alpha = Math.max(0, 1 - dist/linkDist) * 0.16 * Math.min(pa.s, pb.s);
+              const pb = project(b);
+              const alpha = Math.max(0, 1 - dist/linkDist) * 0.16 * Math.min(pa.s, pb.s);
 
-                  ctx.strokeStyle = `rgba(96,165,250,${alpha})`;
-                  ctx.lineWidth = 1;
-                  ctx.beginPath();
-                  ctx.moveTo(pa.x, pa.y);
-                  ctx.lineTo(pb.x, pb.y);
-                  ctx.stroke();
-                }
-              }
+              ctx.strokeStyle = `rgba(96,165,250,${alpha})`;
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(pa.x, pa.y);
+              ctx.lineTo(pb.x, pb.y);
+              ctx.stroke();
             }
           }
 
@@ -2300,19 +2242,10 @@
             ctx.fill();
           }
 
-          if (!prefersReduced) bgRaf = document.hidden ? null : requestAnimationFrame(frame);
+          if (!prefersReduced) requestAnimationFrame(frame);
         }
 
-        // Fully stop while the tab is hidden; resume when it becomes visible.
-        document.addEventListener("visibilitychange", () => {
-          if (document.hidden) {
-            if (bgRaf !== null) { cancelAnimationFrame(bgRaf); bgRaf = null; }
-          } else if (bgLoop && bgRaf === null) {
-            bgRaf = requestAnimationFrame(frame);
-          }
-        });
-
-        if (!prefersReduced) { bgLoop = true; bgRaf = requestAnimationFrame(frame); }
+        if (!prefersReduced) requestAnimationFrame(frame);
       })();
 
       // -------------------- tsParticles (Hero only) --------------------
@@ -2321,10 +2254,6 @@
 
         await tsParticles.load("heroParticles", {
           fpsLimit: isTouchDevice ? 30 : 60,
-          // Explicit (matches the v3 default): the bundle's own
-          // IntersectionObserver pauses/plays the container when the hero
-          // canvas leaves/enters the viewport.
-          pauseOnOutsideViewport: true,
           background: { color: { value: "transparent" } },
           fullScreen: { enable: false },
           detectRetina: !isTouchDevice,
@@ -2439,10 +2368,7 @@
         }
 
         let tick = 0;
-        let flowRaf = null;   // single in-flight rAF; null = loop idle
-        let flowVisible = false;
         function frame() {
-          flowRaf = null;
           ctx.clearRect(0, 0, W, H);
           tick++;
 
@@ -2522,22 +2448,9 @@
           }
 
           canvas.style.cursor = hov ? "pointer" : "default";
-          if (flowVisible) flowRaf = requestAnimationFrame(frame);
+          requestAnimationFrame(frame);
         }
-        // Animate only while the canvas intersects the viewport (was: an
-        // unconditional loop from page load, even with the section offscreen).
-        const flowIO = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            flowVisible = entry.isIntersecting;
-            if (flowVisible) {
-              if (flowRaf === null) flowRaf = requestAnimationFrame(frame);
-            } else if (flowRaf !== null) {
-              cancelAnimationFrame(flowRaf);
-              flowRaf = null;
-            }
-          });
-        });
-        flowIO.observe(canvas);
+        requestAnimationFrame(frame);
       })();
 
       // -------------------- KPI Animated Line Chart --------------------
@@ -2557,9 +2470,7 @@
           ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         }
         resize();
-        // Resizing resets canvas.width (clearing the bitmap), so repaint if
-        // on-screen; off-screen, the viewport re-entry redraw covers it.
-        window.addEventListener("resize", () => { resize(); if (kpiVisible) requestRedraw(); }, { passive: true });
+        window.addEventListener("resize", resize, { passive: true });
 
         const WEEKS = ["W1","W2","W3","W4","W5","W6","W7","W8"];
         const BEFORE = [62,58,64,55,60,63,57,61];
@@ -2567,21 +2478,11 @@
 
         let progress = 0, started = false;
         let mX = -9999, mY = -9999;
-        let kpiRaf = null;     // intro-animation rAF; null = idle
-        let kpiRedraw = null;  // one-shot event-driven redraw rAF; null = idle
-        let kpiVisible = false;
 
-        // Post-intro repaints are event-driven: one coalesced redraw per frame.
-        // No-op while the intro loop is repainting or a redraw is already pending.
-        const requestRedraw = () => {
-          if (kpiRaf !== null || kpiRedraw !== null) return;
-          kpiRedraw = requestAnimationFrame(() => { kpiRedraw = null; drawFrame(); });
-        };
-
-        canvas.addEventListener("mousemove",  e=>{const r=canvas.getBoundingClientRect();mX=e.clientX-r.left;mY=e.clientY-r.top;requestRedraw();},{passive:true});
-        canvas.addEventListener("mouseleave", ()=>{mX=mY=-9999;requestRedraw();});
-        canvas.addEventListener("touchmove",  e=>{const r=canvas.getBoundingClientRect(),t=e.touches[0];mX=t.clientX-r.left;mY=t.clientY-r.top;requestRedraw();},{passive:true});
-        canvas.addEventListener("touchend",   ()=>{mX=mY=-9999;requestRedraw();});
+        canvas.addEventListener("mousemove",  e=>{const r=canvas.getBoundingClientRect();mX=e.clientX-r.left;mY=e.clientY-r.top;},{passive:true});
+        canvas.addEventListener("mouseleave", ()=>{mX=mY=-9999;});
+        canvas.addEventListener("touchmove",  e=>{const r=canvas.getBoundingClientRect(),t=e.touches[0];mX=t.clientX-r.left;mY=t.clientY-r.top;},{passive:true});
+        canvas.addEventListener("touchend",   ()=>{mX=mY=-9999;});
 
         const pL=56, pR=24, pT=32, pB=44;
 
@@ -2677,31 +2578,27 @@
         }
 
         function animate() {
-          if (progress < 1) { progress = Math.min(1, progress+0.02); drawFrame(); kpiRaf = requestAnimationFrame(animate); }
-          // Intro done: paint the final frame and go idle. All later repaints
-          // are event-driven via requestRedraw() (was: a free-running loop).
-          else { kpiRaf = null; drawFrame(); }
+          if (progress < 1) { progress = Math.min(1, progress+0.02); drawFrame(); requestAnimationFrame(animate); }
+          else { drawFrame(); requestAnimationFrame(function loop(){ drawFrame(); requestAnimationFrame(loop); }); }
         }
 
         const io = new IntersectionObserver((entries)=>{
-          entries.forEach(e=>{
-            kpiVisible = e.isIntersecting;
-            if (e.isIntersecting) {
-              if (!started) { started = true; animate(); }                       // first sight: play intro
-              else if (progress < 1 && kpiRaf === null) animate();               // resume intro paused off-screen
-              else requestRedraw();                                              // post-intro re-entry: repaint once, never replay
-            } else if (kpiRaf !== null) {
-              cancelAnimationFrame(kpiRaf); kpiRaf = null;                       // off-screen: pause the intro loop
-            }
-          });
+          entries.forEach(e=>{ if(e.isIntersecting && !started){ started=true; io.unobserve(canvas); animate(); } });
         }, {threshold:0.3});
         io.observe(canvas);
         drawFrame();
       })();
 
       // ==================== AWARD-LEVEL ENHANCEMENTS ====================
-      // (Loading screen logic lives at the top of this script, outside the
-      // DOMContentLoaded wrapper.)
+
+      // -------------------- Loading screen --------------------
+      (() => {
+        const loader = document.getElementById("loader");
+        if (!loader) return;
+        const hide = () => { loader.classList.add("out"); setTimeout(() => loader.remove(), 800); };
+        if (document.readyState === "complete") setTimeout(hide, 1450);
+        else window.addEventListener("load", () => setTimeout(hide, 1350));
+      })();
 
       // -------------------- Scroll progress bar --------------------
       const pgBar = document.getElementById("scroll-progress");
@@ -2722,23 +2619,14 @@
           ring?.remove(); dot?.remove(); return;
         }
         let cx = -200, cy = -200, tx = -200, ty = -200;
-        let ringRaf = null; // single in-flight rAF; null = loop idle
+        window.addEventListener("mousemove", e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
         const cTick = () => {
-          ringRaf = null;
           cx += (tx - cx) * 0.13; cy += (ty - cy) * 0.13;
-          // Converged: snap to target and stop scheduling until the next mousemove.
-          if (Math.abs(tx - cx) < 0.1 && Math.abs(ty - cy) < 0.1) { cx = tx; cy = ty; }
-          else ringRaf = requestAnimationFrame(cTick);
-          // Composited transform instead of left/top (no per-frame layout).
-          // The trailing translate(-50%,-50%) keeps the original centering.
-          ring.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
-          dot.style.transform  = `translate3d(${tx}px, ${ty}px, 0) translate(-50%, -50%)`;
+          ring.style.left = cx + "px"; ring.style.top = cy + "px";
+          dot.style.left  = tx + "px"; dot.style.top  = ty + "px";
+          requestAnimationFrame(cTick);
         };
-        window.addEventListener("mousemove", e => {
-          tx = e.clientX; ty = e.clientY;
-          if (ringRaf === null) ringRaf = requestAnimationFrame(cTick);
-        }, { passive: true });
-        cTick(); // paint the initial offscreen position once, then idle
+        requestAnimationFrame(cTick);
         document.querySelectorAll("a, button, [role=button]").forEach(el => {
           el.addEventListener("mouseenter", () => ring.classList.add("hovered"));
           el.addEventListener("mouseleave", () => ring.classList.remove("hovered"));
@@ -2822,9 +2710,6 @@
         cIcon && cIcon.classList.add("hidden");
         document.body.style.overflow = "";
       }
-      // Called from inline onclick attributes in the mobile drawer — must stay
-      // global now that this script runs inside the DOMContentLoaded wrapper.
-      window.closeMobileMenu = closeMobileMenu;
 
       (() => {
         const btn    = document.getElementById("mobile-menu-btn");
@@ -2881,8 +2766,6 @@
           btn.textContent = oldText;
         }
       });
-
-      }); // end DOMContentLoaded wrapper
     </script>
   </body>
 </html>
