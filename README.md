@@ -3,6 +3,9 @@
 Static marketing site for Uniment, deployed via GitHub Pages (see `CNAME`).
 No build system, no `package.json` — the only generated asset is `css/tailwind.css`.
 
+Scrolling is native (no smooth-scroll library); anchor links glide via CSS
+`scroll-behavior: smooth`, which reduced-motion users get as instant jumps.
+
 ## Regenerating tailwind.css
 
 `css/tailwind.css` is committed to the repo and must be regenerated whenever
