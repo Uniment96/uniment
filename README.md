@@ -1,10 +1,40 @@
 # uniment.ae
 
 Static marketing site for Uniment, deployed via GitHub Pages (see `CNAME`).
-No build system, no `package.json` — the only generated asset is `css/tailwind.css`.
+No build system, no `package.json` — the generated assets are `css/tailwind.css`
+and the raster images listed under "Social image and icons" below.
 
 Scrolling is native (no smooth-scroll library); anchor links glide via CSS
 `scroll-behavior: smooth`, which reduced-motion users get as instant jumps.
+
+## Motion
+
+One motion language, defined as tokens on `:root` in `index.html`:
+
+| Token | Value | Use |
+|---|---|---|
+| `--ease-out` | `cubic-bezier(.16,1,.3,1)` | the only easing curve |
+| `--dur` | `500ms` | every movement |
+| `--dur-state` | `200ms` | colour / border / opacity feedback — never movement |
+| `--rise` | `12px` | the only travel distance |
+
+Rules: movement is `translateY(var(--rise))` + opacity only; no blur, no
+loops, no animation-frame loops; each element animates once. Under
+`prefers-reduced-motion: reduce` a single global rule turns every animation
+and transition off (homepage and `blog/blog.css`).
+
+The complete list of what moves:
+
+1. **Hero** — enters once as one block (`.hero-enter`).
+2. **Scroll reveal** — `.box` cards fade up once (stagger capped at 3 × 60ms);
+   the JS removes `.reveal` when the transition ends.
+3. **Mobile drawer** — slides in/out.
+4. **Anchor glide** — native `scroll-behavior: smooth`.
+5. **Hover / focus** — colour, border and shadow changes only; nothing lifts,
+   tilts or scales.
+
+The data-flow diagram and KPI chart are static canvases: drawn once, then
+redrawn only on resize or hover. Please keep new effects inside this spec.
 
 ## Regenerating tailwind.css
 
@@ -55,3 +85,23 @@ intentional, the same policy as the `@latest` CDN elimination. Note: Google
 declares no weight-800 face for this family (the response covers 400/600/700,
 one shared file per subset), so `font-weight: 800` styles intentionally render
 via the 700 face — do not "fix" this by adding an 800 face or editing weights.
+
+## Social image and icons
+
+WhatsApp, LinkedIn, X and Facebook do not render an SVG `og:image`, so the rasters
+are what the pages actually reference. They are derived from the SVGs, which stay
+the editable sources:
+
+| File | Size | Source |
+|---|---|---|
+| `og-image.jpg` | 1200×630, JPEG q92 (~54 KB — under WhatsApp's ~300 KB guideline) | `og-image.svg` |
+| `apple-touch-icon.png` | 180×180, full-bleed square (iOS applies its own mask) | `logo.svg` |
+| `favicon.ico` | 32×32 + 48×48 (PNG-in-ICO) | `logo.svg` |
+
+If you change `og-image.svg` or `logo.svg`, re-export the rasters. Any headless
+Chromium works: load the SVG in an `<img>` at the target size and screenshot it
+(JPEG `quality: 92` for the OG image). Also update the `og:image:alt` text if the
+headline changes.
+
+`404.html` is served by GitHub Pages for every missing URL, so it uses absolute
+asset paths (`/css/…`, `/blog/blog.css`) — keep it that way.
