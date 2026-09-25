@@ -26,6 +26,19 @@ body{
 a{ color: var(--accent-blue); text-decoration: none; }
 a:hover{ text-decoration: underline; }
 
+/* ---------- Keyboard focus + skip link ---------- */
+:focus-visible{ outline: 2px solid #fff; outline-offset: 3px; }
+main:focus{ outline: none; }
+.skip-link{
+  position: fixed; left: 16px; top: -64px; z-index: 100;
+  padding: 12px 18px; border-radius: 10px;
+  background: #fff; color: #0c0e1a;
+  font-size: .875rem; font-weight: 600;
+  transition: top .2s ease;
+}
+.skip-link:hover{ text-decoration: none; }
+.skip-link:focus{ top: 16px; }
+
 .container{
   max-width: 760px;
   margin: 0 auto;
@@ -82,7 +95,7 @@ a:hover{ text-decoration: underline; }
   font-size: .875rem;
   color: var(--dim);
 }
-.nav-links a{ color: var(--dim); }
+.nav-links a{ color: var(--dim); display: inline-flex; align-items: center; min-height: 44px; }
 .nav-links a:hover{ color: #fff; text-decoration: none; }
 .nav-links a.active{ color: #fff; font-weight: 600; }
 @media (max-width: 640px){
@@ -261,6 +274,13 @@ article li::marker{ color: var(--accent-violet); }
   transition: transform .18s ease;
 }
 .btn:hover{ transform: translateY(-2px); text-decoration: none; }
+.btn-ghost{
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.28);
+  box-shadow: none;
+}
+.actions{ display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.75rem 0 4rem; }
 
 /* ---------- Footer ---------- */
 footer{
@@ -281,3 +301,12 @@ footer{
 }
 .footer-inner .brand{ font-weight: 800; color: #fff; }
 .footer-inner strong{ color: #fff; }
+/* Inline footer links: grow the tap area to ~44px without changing the line layout */
+.footer-inner a{ padding: .85rem .3rem; margin: -.85rem -.3rem; }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  .card, .btn, .skip-link{ transition: none; }
+  .card:hover, .btn:hover{ transform: none; }
+}
