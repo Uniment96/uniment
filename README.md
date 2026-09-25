@@ -7,6 +7,35 @@ and the raster images listed under "Social image and icons" below.
 Scrolling is native (no smooth-scroll library); anchor links glide via CSS
 `scroll-behavior: smooth`, which reduced-motion users get as instant jumps.
 
+## Motion
+
+One motion language, defined as tokens on `:root` in `index.html`:
+
+| Token | Value | Use |
+|---|---|---|
+| `--ease-out` | `cubic-bezier(.16,1,.3,1)` | the only easing curve |
+| `--dur` | `500ms` | every movement |
+| `--dur-state` | `200ms` | colour / border / opacity feedback — never movement |
+| `--rise` | `12px` | the only travel distance |
+
+Rules: movement is `translateY(var(--rise))` + opacity only; no blur, no
+loops, no animation-frame loops; each element animates once. Under
+`prefers-reduced-motion: reduce` a single global rule turns every animation
+and transition off (homepage and `blog/blog.css`).
+
+The complete list of what moves:
+
+1. **Hero** — enters once as one block (`.hero-enter`).
+2. **Scroll reveal** — `.box` cards fade up once (stagger capped at 3 × 60ms);
+   the JS removes `.reveal` when the transition ends.
+3. **Mobile drawer** — slides in/out.
+4. **Anchor glide** — native `scroll-behavior: smooth`.
+5. **Hover / focus** — colour, border and shadow changes only; nothing lifts,
+   tilts or scales.
+
+The data-flow diagram and KPI chart are static canvases: drawn once, then
+redrawn only on resize or hover. Please keep new effects inside this spec.
+
 ## Regenerating tailwind.css
 
 `css/tailwind.css` is committed to the repo and must be regenerated whenever

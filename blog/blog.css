@@ -34,7 +34,6 @@ main:focus{ outline: none; }
   padding: 12px 18px; border-radius: 10px;
   background: #fff; color: #0c0e1a;
   font-size: .875rem; font-weight: 600;
-  transition: top .2s ease;
 }
 .skip-link:hover{ text-decoration: none; }
 .skip-link:focus{ top: 16px; }
@@ -115,11 +114,10 @@ main:focus{ outline: none; }
   box-shadow: 0 8px 32px rgba(0,0,0,.40), inset 0 1px 0 rgba(255,255,255,.10);
   padding: 1.75rem;
   color: var(--text);
-  transition: transform .26s var(--ease-out), border-color .26s ease, background .26s ease;
+  transition: border-color .2s var(--ease-out), background .2s var(--ease-out);
   overflow: hidden;
 }
 .card:hover{
-  transform: translateY(-5px);
   background: rgba(255,255,255,.085);
   border-color: var(--glass-border-hover);
   text-decoration: none;
@@ -271,15 +269,16 @@ article li::marker{ color: var(--accent-violet); }
   font-weight: 600;
   font-size: .95rem;
   box-shadow: 0 8px 22px rgba(0,0,0,.45);
-  transition: transform .18s ease;
+  transition: background .2s var(--ease-out), border-color .2s var(--ease-out);
 }
-.btn:hover{ transform: translateY(-2px); text-decoration: none; }
+.btn:hover{ background: #e9e9ee; text-decoration: none; }
 .btn-ghost{
   background: transparent;
   color: #fff;
   border: 1px solid rgba(255,255,255,.28);
   box-shadow: none;
 }
+.btn-ghost:hover{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.4); }
 .actions{ display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.75rem 0 4rem; }
 
 /* ---------- Footer ---------- */
@@ -304,9 +303,11 @@ footer{
 /* Inline footer links: grow the tap area to ~44px without changing the line layout */
 .footer-inner a{ padding: .85rem .3rem; margin: -.85rem -.3rem; }
 
-/* ---------- Reduced motion ---------- */
+/* ---------- Reduced motion: everything off ---------- */
 @media (prefers-reduced-motion: reduce){
-  html{ scroll-behavior: auto; }
-  .card, .btn, .skip-link{ transition: none; }
-  .card:hover, .btn:hover{ transform: none; }
+  *, *::before, *::after{
+    animation: none !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
+  }
 }
