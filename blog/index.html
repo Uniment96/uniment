@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#06080f" />
-    <link rel="icon" href="/favicon.ico" sizes="48x48" />
-    <link rel="icon" href="/logo.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <title>Blog — Restaurant Analytics &amp; Operations Guides for UAE | Uniment</title>
-    <meta name="description" content="Practical guides on restaurant analytics, food cost control, KPI dashboards, and delivery channel management for UAE and GCC restaurant operators. By the team building Uniment." />
+    <meta name="theme-color" content="#F6F3EE" />
+    <link rel="icon" href="../favicon.ico" sizes="48x48" />
+    <link rel="icon" href="../logo.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <title>Guides for UAE Restaurant Owners | Uniment</title>
+    <meta name="description" content="Short, practical guides for restaurant owners in the UAE and GCC: weekly numbers, food cost, waste and delivery app sales. Written by the team building Uniment." />
 
     <link rel="canonical" href="https://uniment.ae/blog/" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
@@ -17,22 +17,22 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://uniment.ae/blog/" />
-    <meta property="og:title" content="Uniment Blog — Restaurant Analytics &amp; Operations Guides for UAE" />
-    <meta property="og:description" content="Practical guides on restaurant analytics, food cost control, KPI dashboards, and delivery channel management for UAE and GCC restaurant operators." />
+    <meta property="og:title" content="Guides for UAE Restaurant Owners | Uniment" />
+    <meta property="og:description" content="Short, practical guides for restaurant owners in the UAE and GCC: weekly numbers, food cost, waste and delivery app sales. Written by the team building Uniment." />
     <meta property="og:image" content="https://uniment.ae/og-image.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Uniment — turn restaurant data into profit" />
+    <meta property="og:image:alt" content="Uniment restaurant dashboard" />
     <meta property="og:site_name" content="Uniment" />
     <meta property="og:locale" content="en_AE" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Uniment Blog — Restaurant Analytics &amp; Operations Guides for UAE" />
-    <meta name="twitter:description" content="Practical guides on restaurant analytics, food cost control, KPI dashboards, and delivery channel management for UAE and GCC restaurant operators." />
+    <meta name="twitter:title" content="Guides for UAE Restaurant Owners | Uniment" />
+    <meta name="twitter:description" content="Short, practical guides for restaurant owners in the UAE and GCC: weekly numbers, food cost, waste and delivery app sales. Written by the team building Uniment." />
     <meta name="twitter:image" content="https://uniment.ae/og-image.jpg" />
-    <meta name="twitter:image:alt" content="Uniment — turn restaurant data into profit" />
+    <meta name="twitter:image:alt" content="Uniment restaurant dashboard" />
 
     <!-- Structured Data: Blog -->
     <script type="application/ld+json">
@@ -41,7 +41,7 @@
       "@type": "Blog",
       "@id": "https://uniment.ae/blog/",
       "name": "Uniment Blog",
-      "description": "Practical guides on restaurant analytics, food cost control, KPI dashboards, and delivery channel management for UAE and GCC restaurant operators.",
+      "description": "Short, practical guides for restaurant owners in the UAE and GCC: weekly numbers, food cost, waste and delivery app sales. Written by the team building Uniment.",
       "url": "https://uniment.ae/blog/",
       "inLanguage": "en-AE",
       "publisher": {
@@ -62,60 +62,83 @@
     }
     </script>
 
-    <link rel="stylesheet" href="/css/fonts.css">
-    <link rel="stylesheet" href="/blog/blog.css" />
+    <link rel="preload" href="../fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../blog/blog.css" />
 
     <script defer data-domain="uniment.ae" src="https://plausible.io/js/script.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <nav class="nav">
-      <div class="nav-inner">
-        <a href="/" class="nav-brand"><span class="mark">U</span><span>Uniment</span></a>
-        <div class="nav-links">
-          <a href="/#features" class="hide-mobile">Features</a>
-          <a href="/#products" class="hide-mobile">Products</a>
-          <a href="/#faq" class="hide-mobile">FAQ</a>
-          <a href="/blog/" class="active">Blog</a>
-          <a href="/#notify">Get early access</a>
-        </div>
+    <header class="nav">
+      <div class="wrap nav-in">
+        <a href="../" class="brand" aria-label="Uniment home">
+          <span class="brand-word">un<span class="i">&#305;</span>ment</span>
+        </a>
+        <nav class="nav-links" aria-label="Main">
+          <a href="../#build" class="hide-mobile">What we build</a>
+          <a href="../restaurants/" class="hide-mobile">Restaurants</a>
+          <a href="../blog/" aria-current="page">Guides</a>
+          <a class="btn btn-ink btn-sm" href="../marketplace/">App Marketplace</a>
+        </nav>
       </div>
-    </nav>
+    </header>
 
     <main id="main" tabindex="-1">
-      <div class="container-wide">
+      <div class="wrap">
         <header class="page-header">
-          <p class="eyebrow">Uniment Blog</p>
-          <h1>Restaurant analytics &amp; operations, <span class="gradient-text">explained for UAE operators</span></h1>
-          <p class="lede">Practical guides on KPI dashboards, food cost control, delivery channel mix, and running data-driven restaurants in the UAE and GCC — written by the team building Uniment.</p>
+          <p class="eyebrow">Guides</p>
+          <h1>Running the numbers side of a restaurant.</h1>
+          <p class="lede">Short guides for owners and managers in the UAE and GCC. No theory, just what to look at and what to do about it.</p>
         </header>
 
         <div class="post-list">
-          <a class="card post-card" href="/blog/restaurant-kpi-dashboard-weekly-numbers/">
-            <div class="post-date"><time datetime="2026-07-02">July 2, 2026</time> · Restaurant Analytics</div>
-            <h2>Restaurant KPI Dashboard: The 7 Numbers to Review Every Week</h2>
-            <p>Most operators drown in POS reports but still can’t answer “was this a good week?” The seven numbers that actually change decisions — revenue trend, channel mix, food cost %, and more — and how to track them without a data team.</p>
-            <span class="read-more">Read the guide →</span>
+          <a class="post-row" href="../blog/restaurant-kpi-dashboard-weekly-numbers/">
+            <span class="post-date"><time datetime="2026-07-02">2 July 2026</time></span>
+            <div>
+              <h2>The 7 numbers to review every week</h2>
+              <p>Sales trend, delivery vs dine-in, food cost, best and worst days, order value, promotions and waste. What each one tells you, and how to track them without a data team.</p>
+            </div>
+            <span class="read-more" aria-hidden="true">Read &rarr;</span>
           </a>
-        </div>
-
-        <p class="coming-soon">More guides coming soon: UAE restaurant VAT tracking, food waste costs, and reading your Talabat / Deliveroo channel mix.</p>
-
-        <div class="cta">
-          <h2>Put the guides into practice</h2>
-          <p>RevenueRoll is free for UAE restaurants — upload a POS export and see your KPIs in minutes.</p>
-          <a class="btn" href="https://paulkpi-frontend-for-frontend.vercel.app/auth/login">Try RevenueRoll free</a>
+          <div class="post-row soon">
+            <span class="post-date">Coming next</span>
+            <div><h2>UAE VAT on supplier invoices</h2></div>
+            <span></span>
+          </div>
+          <div class="post-row soon">
+            <span class="post-date">Coming next</span>
+            <div><h2>What food waste costs you in AED</h2></div>
+            <span></span>
+          </div>
+          <div class="post-row soon">
+            <span class="post-date">Coming next</span>
+            <div><h2>Reading your Talabat and Deliveroo split</h2></div>
+            <span></span>
+          </div>
         </div>
       </div>
+      <section class="cta">
+        <div class="wrap cta-in">
+          <div>
+            <h2>Try it on last week.</h2>
+            <p>Upload a POS export to RevenueRoll and see your own numbers. Free, no card.</p>
+          </div>
+          <a class="btn" href="https://paulkpi-frontend-for-frontend.vercel.app/auth/login">Open RevenueRoll, free</a>
+        </div>
+      </section>
     </main>
 
-    <footer>
-      <div class="footer-inner">
-        <div>
-          <div class="brand">Uniment</div>
-          <div>© 2026 Uniment. All rights reserved.</div>
-        </div>
-        <div>Built by <strong>Mayur Rane</strong> · <a href="/">Home</a> · <a href="/#faq">FAQ</a></div>
+    <footer class="foot">
+      <div class="wrap foot-in">
+        <span>&copy; 2026 Uniment. Dubai, United Arab Emirates.</span>
+        <nav aria-label="Footer">
+          <a href="../">Home</a>
+          <a href="../blog/">Guides</a>
+          <a href="../restaurants/">Restaurants</a>
+          <a href="https://wa.me/971502413077" target="_blank" rel="noopener">WhatsApp</a>
+        </nav>
       </div>
     </footer>
   </body>

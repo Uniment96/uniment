@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
-  <rect width="200" height="200" rx="32" fill="#0a0d1a"/>
-  <rect x="16" y="16" width="168" height="168" rx="24" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-  <text x="100" y="120" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800"
-        text-anchor="middle" fill="url(#g)" letter-spacing="-2">U</text>
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#c4b5fd"/>
-      <stop offset="100%" stop-color="#93c5fd"/>
-    </linearGradient>
-  </defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#F6F3EE"/><path transform="translate(16.944 46.232) scale(0.05584 -0.05584)" fill="#17150F" d="M205.75 -13.75Q117.75 -13.75 76.125 48.5Q34.5 110.75 34.5 240.25V523.5H170.25V241.75Q170.25 168 189.875 137.125Q209.5 106.25 250.25 106.25Q277.25 106.25 299.0 119.625Q320.75 133 336.5 160.375Q352.25 187.75 360.5 230.625Q368.75 273.5 368.75 333.5V523.5H504.25V247.75L504.75 0H386.75L392.25 211.5H384.75Q377.5 132.75 355.875 83.125Q334.25 33.5 297.125 9.875Q260 -13.75 205.75 -13.75Z"/></svg>

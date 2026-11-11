@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+# Source files for share images, not pages
+Disallow: /brand/
 
 # AI & Answer Engine Crawlers — explicitly permitted for AEO
 User-agent: GPTBot

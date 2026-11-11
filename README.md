@@ -1,90 +1,49 @@
 # uniment.ae
 
 Static marketing site for Uniment, deployed via GitHub Pages (see `CNAME`).
-No build system, no `package.json` — the generated assets are `css/tailwind.css`
-and the raster images listed under "Social image and icons" below.
+No build system, no `package.json`. The only generated assets are the raster images listed under "Social image and icons" below.
 
 Scrolling is native (no smooth-scroll library); anchor links glide via CSS
 `scroll-behavior: smooth`, which reduced-motion users get as instant jumps.
 
-## Motion
+## Homepage design system
 
-One motion language, defined as tokens on `:root` in `index.html`:
+Pages: `/` (custom software for any business), `/restaurants/` (restaurant tools and
+restaurant software), `/blog/` and `404.html`.
 
-| Token | Value | Use |
-|---|---|---|
-| `--ease-out` | `cubic-bezier(.16,1,.3,1)` | the only easing curve |
-| `--dur` | `500ms` | every movement |
-| `--dur-state` | `200ms` | colour / border / opacity feedback — never movement |
-| `--rise` | `12px` | the only travel distance |
+`/` and `/restaurants/` share `css/site.css` (plain CSS, tokens on `:root`). The blog
+and 404 use `blog/blog.css`, which repeats the same tokens. Use only those tokens.
 
-Rules: movement is `translateY(var(--rise))` + opacity only; no blur, no
-loops, no animation-frame loops; each element animates once. Under
-`prefers-reduced-motion: reduce` a single global rule turns every animation
-and transition off (homepage and `blog/blog.css`).
+| Token group | Values |
+|---|---|
+| Fonts | Bricolage Grotesque (headings), Geist (text). Self-hosted in `/fonts`, declared in `css/fonts.css` |
+| Colour | `--paper #F6F3EE`, `--ink #17150F`, `--accent #C2410C` (main button and one key moment per section), neutrals `--ink-2`, `--ink-3`, `--line`, `--paper-2` |
+| Spacing | 8, 16, 24, 32, 48, 64, 96, 128 px (`--s-1` to `--s-8`) |
+| Grid | 12 columns, 1280px max, 24px gutter |
+| Shape | 6px radius on buttons, inputs and the product shot. Everything else is square, separated by 1px lines |
+| Motion | Colour changes on hover (180ms) and a 3px arrow nudge. Nothing else moves. Off under `prefers-reduced-motion` |
 
-The complete list of what moves:
-
-1. **Hero** — enters once as one block (`.hero-enter`).
-2. **Scroll reveal** — `.box` cards fade up once (stagger capped at 3 × 60ms);
-   the JS removes `.reveal` when the transition ends.
-3. **Mobile drawer** — slides in/out.
-4. **Anchor glide** — native `scroll-behavior: smooth`.
-5. **Hover / focus** — colour, border and shadow changes only; nothing lifts,
-   tilts or scales.
-
-The data-flow diagram and KPI chart are static canvases: drawn once, then
-redrawn only on resize or hover. Please keep new effects inside this spec.
-
-## Regenerating tailwind.css
-
-`css/tailwind.css` is committed to the repo and must be regenerated whenever
-Tailwind utility classes in `index.html` are added, removed, or renamed
-(including classes referenced from inline JS — add those to the `safelist`
-in `tailwind.config.js`, since the CLI cannot see classes built at runtime).
-
-Uses the Tailwind **v3.4.x standalone CLI** (v3, not v4 — the site was authored
-against v3 utility behavior). The binary is not committed; download it once:
-
-```sh
-# macOS arm64 — for other platforms see:
-# https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.4.17
-curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v3.4.17/tailwindcss-macos-arm64
-chmod +x tailwindcss-macos-arm64
-```
-
-Then, from the repo root:
-
-```sh
-./tailwindcss-macos-arm64 -c tailwind.config.js -i tailwind.input.css -o css/tailwind.css --minify
-```
-
-Commit the updated `css/tailwind.css` together with the HTML change that
-required it.
+The dashboard in the hero is HTML with sample data and says so in its caption.
+Keep each page's FAQ JSON-LD in `<head>` in sync with its visible FAQ.
+Brand: the name is a text wordmark (`.brand-word`, a dotless i with an orange square dot,
+styled in `css/site.css` and `blog/blog.css`). The square icon (a plain lowercase u from Bricolage
+Grotesque, ink on a paper tile) is `logo.svg`, used for the favicon, the iPhone icon
+and the founder note.
+Share images: `og-image.jpg` (home) and `og-restaurants.jpg`, rendered from
+`brand/og-home.html` and `brand/og-restaurants.html`.
 
 ## Fonts
 
-Space Grotesk is self-hosted: `css/fonts.css` + `fonts/*.woff2` are a
-byte-for-byte mirror of what Google Fonts serves (mirrored 2026-07-15), with
-only the `src` URLs rewritten to local paths. Source CSS:
+Bricolage Grotesque (headings) and Geist (text) are self-hosted variable fonts:
+`css/fonts.css` + `fonts/*.woff2`, mirrored from Google Fonts (latin and
+latin-ext subsets only) with the `src` URLs rewritten to local paths. Source CSS:
 
 ```
-https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap
+https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Geist:wght@400..600&display=swap
 ```
 
-**If you ever re-mirror, fetch that URL with a current Chrome desktop
-`User-Agent` header.** Without a modern UA, Google serves full-size TTFs with
-no `unicode-range` splits instead of the per-subset woff2 files real users
-get. Download every woff2 the returned CSS references, and keep the
-`@font-face` blocks verbatim (same `unicode-range`, same
-`font-display: swap`) so subset-download behavior stays identical.
-
-The files are version-pinned by commit (currently `spacegrotesk/v22`).
-Google-side font updates no longer flow in automatically — that is
-intentional, the same policy as the `@latest` CDN elimination. Note: Google
-declares no weight-800 face for this family (the response covers 400/600/700,
-one shared file per subset), so `font-weight: 800` styles intentionally render
-via the 700 face — do not "fix" this by adding an 800 face or editing weights.
+If you re-mirror, fetch that URL with a current Chrome desktop `User-Agent`
+header, or Google serves full TTFs without `unicode-range` splits.
 
 ## Social image and icons
 
@@ -94,13 +53,13 @@ the editable sources:
 
 | File | Size | Source |
 |---|---|---|
-| `og-image.jpg` | 1200×630, JPEG q92 (~54 KB — under WhatsApp's ~300 KB guideline) | `og-image.svg` |
+| `og-image.jpg`, `og-restaurants.jpg` | 1200×630 JPEG | `brand/og-home.html`, `brand/og-restaurants.html` |
 | `apple-touch-icon.png` | 180×180, full-bleed square (iOS applies its own mask) | `logo.svg` |
 | `favicon.ico` | 32×32 + 48×48 (PNG-in-ICO) | `logo.svg` |
 
-If you change `og-image.svg` or `logo.svg`, re-export the rasters. Any headless
+If you change the `brand/og-*.html` files or `logo.svg`, re-export the rasters. Any headless
 Chromium works: load the SVG in an `<img>` at the target size and screenshot it
-(JPEG `quality: 92` for the OG image). Also update the `og:image:alt` text if the
+(the SVG uses the site fonts, so render it inline in a page that loads `css/fonts.css`). Also update the `og:image:alt` text if the
 headline changes.
 
 `404.html` is served by GitHub Pages for every missing URL, so it uses absolute

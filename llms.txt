@@ -1,6 +1,8 @@
 # Uniment
 
-Uniment is a restaurant intelligence platform for UAE and GCC restaurants helping operators unlock revenue, reduce waste, and win loyal customers with AI-powered data tools and real-time KPI dashboards.
+Uniment builds custom software for businesses in the UAE and GCC: internal team tools (checklists, task lists, approvals, staff apps) and dashboards and reports, made around how each business already works. In English and Arabic. Contact on WhatsApp: +971 50 241 3077.
+
+Uniment also makes its own tools for restaurants, listed below. Restaurant page: https://uniment.ae/restaurants/ . All apps: https://uniment.ae/marketplace/
 
 ## Products
 
@@ -51,4 +53,4 @@ Uniment focuses on small-to-medium restaurant operators in:
 
 ## About Uniment
 
-Uniment helps UAE and GCC restaurant operators make data-driven decisions quickly. The platform converts operational data into simple, actionable insights—turning spreadsheets and POS exports into live dashboards in minutes. No complex setup. Transparent pricing as the product expands.
+Uniment turns POS exports and spreadsheets into a one-page weekly dashboard, ready in about 10 minutes. RevenueRoll is free today. Prices for future features will be shared before anything changes.

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#06080f" />
+    <meta name="theme-color" content="#F6F3EE" />
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" href="/logo.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -12,46 +12,51 @@
     <meta name="robots" content="noindex" />
 
     <!-- GitHub Pages serves this file at any missing URL, so every path here is absolute. -->
+    <link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/blog/blog.css" />
     <style>body{display:flex;flex-direction:column;min-height:100vh}main{flex:1}</style>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <nav class="nav">
-      <div class="nav-inner">
-        <a href="/" class="nav-brand"><span class="mark">U</span><span>Uniment</span></a>
-        <div class="nav-links">
-          <a href="/#features" class="hide-mobile">Features</a>
-          <a href="/#products" class="hide-mobile">Products</a>
-          <a href="/#faq" class="hide-mobile">FAQ</a>
-          <a href="/blog/">Blog</a>
-          <a href="/#notify">Get early access</a>
-        </div>
+    <header class="nav">
+      <div class="wrap nav-in">
+        <a href="/" class="brand" aria-label="Uniment home">
+          <span class="brand-word">un<span class="i">&#305;</span>ment</span>
+        </a>
+        <nav class="nav-links" aria-label="Main">
+          <a href="/#build" class="hide-mobile">What we build</a>
+          <a href="/restaurants/" class="hide-mobile">Restaurants</a>
+          <a href="/blog/">Guides</a>
+          <a class="btn btn-ink btn-sm" href="/marketplace/">App Marketplace</a>
+        </nav>
       </div>
-    </nav>
+    </header>
 
     <main id="main" tabindex="-1">
-      <div class="container">
+      <div class="wrap">
         <header class="page-header">
-          <div class="eyebrow">Error 404</div>
-          <h1>That page <span class="gradient-text">doesn’t exist.</span></h1>
-          <p class="lede">The link may be old or mistyped. Start from the homepage, or read our guides for UAE restaurant operators.</p>
+          <p class="eyebrow num">Error 404</p>
+          <h1>This page is <em>not on the menu.</em></h1>
+          <p class="lede">The link may be old or mistyped. Go back to the homepage, or read a guide while you are here.</p>
         </header>
         <div class="actions">
-          <a class="btn" href="/">Back to the homepage</a>
-          <a class="btn btn-ghost" href="/blog/">Read the blog</a>
+          <a class="btn btn-ink" href="/">Back to the homepage</a>
+          <a class="btn btn-ghost" href="/blog/">Read the guides</a>
         </div>
       </div>
     </main>
 
-    <footer>
-      <div class="footer-inner">
-        <div>
-          <div class="brand">Uniment</div>
-          <div>© 2026 Uniment. All rights reserved.</div>
-        </div>
-        <div>Built by <strong>Mayur Rane</strong> · <a href="/">Home</a> · <a href="/#faq">FAQ</a></div>
+    <footer class="foot">
+      <div class="wrap foot-in">
+        <span>&copy; 2026 Uniment. Dubai, United Arab Emirates.</span>
+        <nav aria-label="Footer">
+          <a href="/">Home</a>
+          <a href="/blog/">Guides</a>
+          <a href="/restaurants/">Restaurants</a>
+          <a href="https://wa.me/971502413077" target="_blank" rel="noopener">WhatsApp</a>
+        </nav>
       </div>
     </footer>
   </body>
