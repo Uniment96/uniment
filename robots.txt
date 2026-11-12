@@ -1,27 +1,15 @@
+# All crawlers, including search engines and AI answer engines, may read the whole site.
 User-agent: *
-Allow: /
-# Source files for share images, not pages
-Disallow: /brand/
-
-# AI & Answer Engine Crawlers — explicitly permitted for AEO
+User-agent: Googlebot
+User-agent: Bingbot
 User-agent: GPTBot
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
 User-agent: OAI-SearchBot
-Allow: /
-
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
 User-agent: anthropic-ai
-Allow: /
-
+User-agent: PerplexityBot
+User-agent: CCBot
 User-agent: Google-Extended
 Allow: /
 
